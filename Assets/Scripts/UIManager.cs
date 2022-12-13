@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    public static UIManager i;
     
     [SerializeField] private TextMeshProUGUI txt_dDiamon;
     [SerializeField] private TextMeshProUGUI txt_dMoney;
@@ -27,7 +29,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject optionThucAn;
     [SerializeField] private GameObject optionNhanVien;
     [SerializeField] private Transform contentNhanVien;
-    [SerializeField] private GameObject slotOptionNhanVien;
+    [SerializeField] private SlotOptionNhanVienHub slotOptionNhanVien;
+    [SerializeField] private MoreInfoNV moreInfoNV;
+    [SerializeField] private SlotCoatHub slotCoat;
     [SerializeField] private GameObject optionSangTao;
     [SerializeField] private GameObject optionCuaHang;
 
@@ -48,6 +52,15 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        if (i == null)
+        {
+            i = this;
+            DontDestroyOnLoad(gameObject);
+        }else if (i != this)
+        {
+            Destroy(gameObject);
+        }
+
         btnCuaTiem.onClick.AddListener(Click_CuaTiem);
         btnGhep.onClick.AddListener(Click_Ghep);
         btnThucDon.onClick.AddListener(Click_ThucDon);
@@ -55,20 +68,19 @@ public class UIManager : MonoBehaviour
         btnSangTao.onClick.AddListener(Click_SangTao);
         btnCuaHang.onClick.AddListener(Click_CuaHang);
         
-        
         btnXNhanVien.onClick.AddListener(Click_XNhanVien);
         
-        btn_NVPV.onClick.AddListener(onClick_btn_NVPV);
-        btn_NVTN.onClick.AddListener(onClick_btn_NVTN);
-        btn_NVPB.onClick.AddListener(onClick_btn_NVPB);
-        btn_NVDB.onClick.AddListener(onClick_btn_NVDB);
-        btn_NVPG.onClick.AddListener(onClick_btn_NVPG);
+        btn_NVPV.onClick.AddListener(OnClick_btn_NVPV);
+        btn_NVTN.onClick.AddListener(OnClick_btn_NVTN);
+        btn_NVPB.onClick.AddListener(OnClick_btn_NVPB);
+        btn_NVDB.onClick.AddListener(OnClick_btn_NVDB);
+        btn_NVPG.onClick.AddListener(OnClick_btn_NVPG);
 
         DeleteColorButton();
         
-        
         option.gameObject.SetActive(false);
         optionNhanVien.gameObject.SetActive(false);
+        moreInfoNV.gameObject.SetActive(false);
 
     }
 
@@ -116,7 +128,7 @@ public class UIManager : MonoBehaviour
     {
         option.gameObject.SetActive(true);
         optionNhanVien.gameObject.SetActive(true);
-        onClick_btn_NVPV();
+        OnClick_btn_NVPV();
     }
     void Click_SangTao()
     {
@@ -170,59 +182,82 @@ public class UIManager : MonoBehaviour
         btn_NVPG.GetComponent<Image>().color = colorOffClick;
     }
 
-    void onClick_btn_NVPV()
+    void OnClick_btn_NVPV()
     {
         UpdateContentNhanVien(contentNhanVien, GameManager.i.NV_PhucVu);
         DeleteColorButton();
         btn_NVPV.GetComponent<Image>().color = colorOnClick;
     }
     
-    void onClick_btn_NVTN()
+    void OnClick_btn_NVTN()
     {
         UpdateContentNhanVien(contentNhanVien, GameManager.i.NV_ThuNgan);
         DeleteColorButton();
         btn_NVTN.GetComponent<Image>().color = colorOnClick;
     }
     
-    void onClick_btn_NVPB()
+    void OnClick_btn_NVPB()
     {
         UpdateContentNhanVien(contentNhanVien, GameManager.i.NV_PhuBep);
         DeleteColorButton();
         btn_NVPB.GetComponent<Image>().color = colorOnClick;
     }
     
-    void onClick_btn_NVDB()
+    void OnClick_btn_NVDB()
     {
         UpdateContentNhanVien(contentNhanVien, GameManager.i.NV_DauBep);
         DeleteColorButton();
         btn_NVDB.GetComponent<Image>().color = colorOnClick;
     }
     
-    void onClick_btn_NVPG()
+    void OnClick_btn_NVPG()
     {
         UpdateContentNhanVien(contentNhanVien, GameManager.i.NV_PG);
         DeleteColorButton();
         btn_NVPG.GetComponent<Image>().color = colorOnClick;
     }
     
-    
-
-    void UpdateContentNhanVien(Transform content, List<NhanVien> nhanViens)
+    void UpdateContentNhanVien(Transform content, List<NhanVien> nhanViens = null, List<Skin> skins = null)
     {
         DeleteContent(content);
-        foreach (var item in nhanViens)
+        
+        if (nhanViens != null)
         {
-            UpdateContent(content, item.Avatar, item.Name, item.Description, item.PointService);
+            foreach (var item in nhanViens)
+            {
+                UpdateContent(content, item);
+            }
+        }else if (skins != null)
+        {
+            int count = 0;
+            foreach (var item in skins)
+            {
+                UpdateContent(content, null, item);
+            }
+        }
+        else
+        {
+            Debug.Log("Error........NULL");
         }
     }
 
-    void UpdateContent(Transform content, Sprite avatar, string name, string description, int point)
+    void UpdateContent(Transform content, NhanVien nhanVien = null, Skin skin = null)
     {
-        var item = Instantiate(slotOptionNhanVien,content).GetComponent<SlotOptionNhanVienHub>();
-        item.imgAvatar.sprite = avatar;
-        item.txtName.text = name;
-        item.txtDescription.text = description;
-        item.txtPointService.text = point.ToString();
+        if (nhanVien != null)
+        {
+            Instantiate(slotOptionNhanVien, content).GetComponent<SlotOptionNhanVienHub>().Init(nhanVien);
+            
+        }else if (skin != null)
+        {
+            var slot = Instantiate(slotCoat,content).GetComponent<SlotCoatHub>();
+            //TODO: Data
+            slot.Init(moreInfoNV, skin);
+            moreInfoNV.Coats.Add(slot);
+        }
+        else
+        {
+            Debug.Log("Error........NULL");
+        }
     }
 
     void DeleteContent(Transform content)
@@ -233,7 +268,25 @@ public class UIManager : MonoBehaviour
         }
     }
     
+    //TODO: change [0]
+    public void OnMoreInfoNV(NhanVien nv)
+    {
+        moreInfoNV.gameObject.SetActive(true);
+        moreInfoNV.Story.text = nv.Story;
+        
+        
+        moreInfoNV.FullSkin.sprite = nv.Skins[0].FullSkin;
+        moreInfoNV.PointServicePlus.text = nv.Skins[0].PointSkin.ToString();
+        
+        moreInfoNV.NameSkin.text = nv.Skins[0].NameSkin;
+        moreInfoNV.TxtPrice.text = nv.Skins[0].Price.ToString();
+        //moreInfoNV.coat = nv.Skins[0].Coat;
 
+        UpdateContentNhanVien(moreInfoNV.ContentCoat.transform, null, nv.Skins);
+    }
+    
+    
+    
     #endregion
     
 }

@@ -295,7 +295,7 @@ TextureImporter:
         width: 83
         height: 72
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -303,6 +303,111 @@ TextureImporter:
       bones: []
       spriteID: 7e0bd91e61945a945b06eeff727da2ef
       internalID: -273330325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icon_4
+      rect:
+        serializedVersion: 2
+        x: 1095
+        y: 955
+        width: 401
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e46de267dad6264e8a977b3f6d1da70
+      internalID: 1505482217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icon_5
+      rect:
+        serializedVersion: 2
+        x: 1262
+        y: 1252
+        width: 200
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e9e2887dbe23ec408ca96bca4374132
+      internalID: 518012386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icon_6
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 1412
+        width: 202
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57cad4b3b9edacf4f9f542f4da81746a
+      internalID: -183880844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icon_7
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 1831
+        width: 86
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92aa9f82071300f448c77c7a703f5c85
+      internalID: 2096312806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icon_8
+      rect:
+        serializedVersion: 2
+        x: 1763
+        y: 7
+        width: 209
+        height: 259
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1650412f1953a704f87caab28cc30654
+      internalID: 1600634415
       vertices: []
       indices: 
       edges: []
@@ -320,12 +425,17 @@ TextureImporter:
     nameFileIdTable:
       sactx-0-2048x2048-ETC2-Common1-1328aaf4_1: -1395716450
       icon_3: -273330325
+      icon_4: 1505482217
       sactx-0-2048x2048-ETC2-Common1-1328aaf4_0: -99203594
       sactx-0-2048x2048-ETC2-Common1-1328aaf4_4: 2090930876
       icon_0: -795705292
+      icon_5: 518012386
       icon_2: 1081186874
       sactx-0-2048x2048-ETC2-Common1-1328aaf4_2: 1312425788
+      icon_7: 2096312806
+      icon_8: 1600634415
       icon_1: 107409967
+      icon_6: -183880844
       sactx-0-2048x2048-ETC2-Common1-1328aaf4_3: 1235039430
   spritePackingTag: 
   pSDRemoveMatte: 0

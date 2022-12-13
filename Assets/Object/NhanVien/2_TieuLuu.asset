@@ -16,4 +16,30 @@ MonoBehaviour:
   name: "Ti\u1EC3u L\u01B0u"
   description: "G\u1ECDi m\xF3n, l\xEAn m\xF3n, v\u1EC7 sinh b\xE0n cho kh\xE1ch
     nh\xE0 h\xE0ng"
+  story: 
   pointService: 90
+  skins:
+  - avatar: {fileID: 0}
+    fullSkin: {fileID: 0}
+    nameSkin: "Trang ph\u1EE5c ban \u0111\u1EA7u"
+    coat: {fileID: 0}
+    pointSkin: 0
+    price: 0
+  - avatar: {fileID: 0}
+    fullSkin: {fileID: 0}
+    nameSkin: "Trang ph\u1EE5c l\u1EC5 t\xECnh nh\xE2n"
+    coat: {fileID: 0}
+    pointSkin: 0
+    price: 0
+  - avatar: {fileID: 0}
+    fullSkin: {fileID: 0}
+    nameSkin: "Trang ph\u1EE5c \u0111\u1ECF "
+    coat: {fileID: 0}
+    pointSkin: 0
+    price: 0
+  - avatar: {fileID: 0}
+    fullSkin: {fileID: 0}
+    nameSkin: "Trang ph\u1EE5c \u0111en"
+    coat: {fileID: 0}
+    pointSkin: 0
+    price: 0
