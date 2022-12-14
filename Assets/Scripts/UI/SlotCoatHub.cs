@@ -9,7 +9,7 @@ public class SlotCoatHub : MonoBehaviour
 {
     public Image ImgCoat;
     public Skin Skin;
-    public MoreInfoNV MyDad;
+    private MoreInfoNV moreInfoNV;
     
     [SerializeField] private Image slotCoat;
     [SerializeField] private Button btnCoat;
@@ -24,20 +24,22 @@ public class SlotCoatHub : MonoBehaviour
 
     public void Init(MoreInfoNV myDad, Skin skin)
     {
-        MyDad = myDad;
+        moreInfoNV = myDad;
         Skin = skin;
         ImgCoat.sprite = Skin.Coat;
     }
 
-    void WhenClick()
+    public void WhenClick()
     {
-        MyDad.ResetColorCoats();
         slotCoat.sprite = imgOn;
-        MyDad.FullSkin.sprite = Skin.FullSkin;
-        MyDad.PointServicePlus.text = Skin.PointSkin.ToString();
-        MyDad.NameSkin.text = Skin.NameSkin;
-        MyDad.TxtPrice.text = Skin.Price.ToString();
-
+        
+        moreInfoNV.ResetColorCoats();
+        moreInfoNV.FullSkin.sprite = Skin.FullSkin;
+        moreInfoNV.PointServicePlus.text = Skin.PointSkin.ToString();
+        moreInfoNV.NameSkin.text = Skin.NameSkin;
+        moreInfoNV.TxtPrice.text = Skin.Price.ToString();
+        
+        
     }
 
     public void WhenNotClick()

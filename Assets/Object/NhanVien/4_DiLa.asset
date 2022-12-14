@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a31615acf014a54f91fb756188f4e83, type: 3}
   m_Name: 4_DiLa
   m_EditorClassIdentifier: 
-  avatar: {fileID: 21300000, guid: 6d88b2df464918a4ea2f585e998ab450, type: 3}
+  avatar: {fileID: 21300000, guid: bf3bdd56f149b8f4598c6a721eaf752a, type: 3}
   name: "D\xEC La"
   description: "R\u1EEDa b\xE1t \u0111\u0169a cho nh\xE0 h\xE0nh"
+  story: 
   pointService: 36
+  skins: []

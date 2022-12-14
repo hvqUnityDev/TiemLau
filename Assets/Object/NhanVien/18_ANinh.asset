@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a31615acf014a54f91fb756188f4e83, type: 3}
   m_Name: 18_ANinh
   m_EditorClassIdentifier: 
-  avatar: {fileID: 21300000, guid: 012382233c34f0449b62cc5c14b7a826, type: 2}
+  avatar: {fileID: 21300000, guid: 4aeaeadf00f77c6448b02e997fa33eed, type: 3}
   name: A Ninh
   description: "B\u1ED9 m\u1EB7t c\u1EE7a nh\xE0 h\xE0ng, \u0111\xF3n ti\u1EBFp kh\xE1ch
     \u0111\u1EBFn tr\u01B0\u1EDBc"
+  story: 
   pointService: 110
+  skins: []

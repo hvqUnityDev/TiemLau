@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a31615acf014a54f91fb756188f4e83, type: 3}
   m_Name: 7_CoTien
   m_EditorClassIdentifier: 
-  avatar: {fileID: 21300000, guid: 69bcd467be2591d4dae7d2a901395389, type: 3}
+  avatar: {fileID: 21300000, guid: 883746371b43ad742af127a1b85d726a, type: 3}
   name: "C\xF4 Ti\u1EC1n"
   description: "Th\xE1nh to\xE1n cho kh\xE1ch \u1EDF \u0111\u1EA1i s\u1EA3nh"
+  story: 
   pointService: 70
+  skins: []

@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a31615acf014a54f91fb756188f4e83, type: 3}
   m_Name: 15_AnhVu
   m_EditorClassIdentifier: 
-  avatar: {fileID: 21300000, guid: eefb9d464d550ce4484fcb4e605df3af, type: 2}
+  avatar: {fileID: 21300000, guid: 9754e9ba2f8ea3a47bd19ad9c2e55c27, type: 3}
   name: "Anh V\u0169"
   description: "Ph\u1EE5 tr\xE1ch ch\u1EBF bi\u1EBFn m\xF3n \u0103n cho nh\xE0 h\xE0ng"
+  story: 
   pointService: 149
+  skins: []

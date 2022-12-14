@@ -251,7 +251,7 @@ TextureImporter:
         x: 1766
         y: 1231
         width: 70
-        height: 60
+        height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -400,7 +400,7 @@ TextureImporter:
         width: 209
         height: 259
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -408,6 +408,27 @@ TextureImporter:
       bones: []
       spriteID: 1650412f1953a704f87caab28cc30654
       internalID: 1600634415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icon_9
+      rect:
+        serializedVersion: 2
+        x: 1811
+        y: 281
+        width: 111
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6464fe58b0ef0da43ba9ebbb663a24a6
+      internalID: 977505324
       vertices: []
       indices: 
       edges: []
@@ -433,6 +454,7 @@ TextureImporter:
       icon_2: 1081186874
       sactx-0-2048x2048-ETC2-Common1-1328aaf4_2: 1312425788
       icon_7: 2096312806
+      icon_9: 977505324
       icon_8: 1600634415
       icon_1: 107409967
       icon_6: -183880844

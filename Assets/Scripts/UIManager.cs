@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public static UIManager i;
+    //public static UIManager i;
     
     [SerializeField] private TextMeshProUGUI txt_dDiamon;
     [SerializeField] private TextMeshProUGUI txt_dMoney;
@@ -31,7 +31,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Transform contentNhanVien;
     [SerializeField] private SlotOptionNhanVienHub slotOptionNhanVien;
     [SerializeField] private MoreInfoNV moreInfoNV;
-    [SerializeField] private SlotCoatHub slotCoat;
     [SerializeField] private GameObject optionSangTao;
     [SerializeField] private GameObject optionCuaHang;
 
@@ -52,14 +51,14 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        if (i == null)
-        {
-            i = this;
-            DontDestroyOnLoad(gameObject);
-        }else if (i != this)
-        {
-            Destroy(gameObject);
-        }
+        // if (i == null)
+        // {
+        //     i = this;
+        //     DontDestroyOnLoad(gameObject);
+        // }else if (i != this)
+        // {
+        //     Destroy(gameObject);
+        // }
 
         btnCuaTiem.onClick.AddListener(Click_CuaTiem);
         btnGhep.onClick.AddListener(Click_Ghep);
@@ -217,47 +216,18 @@ public class UIManager : MonoBehaviour
         btn_NVPG.GetComponent<Image>().color = colorOnClick;
     }
     
-    void UpdateContentNhanVien(Transform content, List<NhanVien> nhanViens = null, List<Skin> skins = null)
+    void UpdateContentNhanVien(Transform content, List<NhanVien> nhanViens)
     {
         DeleteContent(content);
-        
-        if (nhanViens != null)
+        foreach (var item in nhanViens)
         {
-            foreach (var item in nhanViens)
-            {
-                UpdateContent(content, item);
-            }
-        }else if (skins != null)
-        {
-            int count = 0;
-            foreach (var item in skins)
-            {
-                UpdateContent(content, null, item);
-            }
-        }
-        else
-        {
-            Debug.Log("Error........NULL");
+            UpdateContent(content, item);
         }
     }
 
     void UpdateContent(Transform content, NhanVien nhanVien = null, Skin skin = null)
     {
-        if (nhanVien != null)
-        {
-            Instantiate(slotOptionNhanVien, content).GetComponent<SlotOptionNhanVienHub>().Init(nhanVien);
-            
-        }else if (skin != null)
-        {
-            var slot = Instantiate(slotCoat,content).GetComponent<SlotCoatHub>();
-            //TODO: Data
-            slot.Init(moreInfoNV, skin);
-            moreInfoNV.Coats.Add(slot);
-        }
-        else
-        {
-            Debug.Log("Error........NULL");
-        }
+        Instantiate(slotOptionNhanVien, content).GetComponent<SlotOptionNhanVienHub>().Init(nhanVien, this);
     }
 
     void DeleteContent(Transform content)
@@ -272,20 +242,8 @@ public class UIManager : MonoBehaviour
     public void OnMoreInfoNV(NhanVien nv)
     {
         moreInfoNV.gameObject.SetActive(true);
-        moreInfoNV.Story.text = nv.Story;
-        
-        
-        moreInfoNV.FullSkin.sprite = nv.Skins[0].FullSkin;
-        moreInfoNV.PointServicePlus.text = nv.Skins[0].PointSkin.ToString();
-        
-        moreInfoNV.NameSkin.text = nv.Skins[0].NameSkin;
-        moreInfoNV.TxtPrice.text = nv.Skins[0].Price.ToString();
-        //moreInfoNV.coat = nv.Skins[0].Coat;
-
-        UpdateContentNhanVien(moreInfoNV.ContentCoat.transform, null, nv.Skins);
+        moreInfoNV.Init(nv, this);
     }
-    
-    
     
     #endregion
     

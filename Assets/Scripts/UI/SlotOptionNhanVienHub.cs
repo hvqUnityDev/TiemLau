@@ -8,13 +8,13 @@ using UnityEngine.UI;
 
 public class SlotOptionNhanVienHub : MonoBehaviour
 {
-    public NhanVien NVbase;
+    private NhanVien NVbase;
     public Image imgAvatar;
     public TextMeshProUGUI txtName;
     public TextMeshProUGUI txtDescription;
     public TextMeshProUGUI txtPointService;
 
-    public void Init(NhanVien nv)
+    public void Init(NhanVien nv, UIManager uiManager)
     {
         NVbase = nv;
         
@@ -23,23 +23,6 @@ public class SlotOptionNhanVienHub : MonoBehaviour
         txtDescription.text = NVbase.Description;
         txtPointService.text = NVbase.PointService.ToString();
         
-        AddEventTrigger(gameObject);
+        gameObject.GetComponent<Button>().onClick.AddListener(()=>uiManager.OnMoreInfoNV(NVbase));
     }
-
-    void AddEventTrigger(GameObject GO)
-    {
-        if (GO.GetComponent<EventTrigger>() == null)
-        {
-            GO.AddComponent<EventTrigger>();
-        }
-
-        EventTrigger eventTrigger = GO.GetComponent<EventTrigger>();
-        EventTrigger.Entry entry = new EventTrigger.Entry();
-        entry.eventID = EventTriggerType.PointerClick;
-        entry.callback.AddListener((func) => { UIManager.i.OnMoreInfoNV(NVbase); });
-        
-        eventTrigger.triggers.Add(entry);
-    }
-    
-    
 }

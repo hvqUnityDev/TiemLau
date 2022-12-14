@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a31615acf014a54f91fb756188f4e83, type: 3}
   m_Name: 3_ChiVuong
   m_EditorClassIdentifier: 
-  avatar: {fileID: 21300000, guid: b397fc6f76f3eac488bdcf0b122f7401, type: 2}
+  avatar: {fileID: 21300000, guid: e01a52fa28041684e906f8cc1a787d14, type: 3}
   name: "Ch\u1ECB V\u01B0\u01A1ng"
   description: "G\u1ECDi m\xF3n, l\xEAn m\xF3n, v\u1EC7 sinh m\u1EB7t b\xE0n cho
     kh\xE1ch \u1EDF \u0111\u1EA1i s\u1EA3nh"
+  story: 
   pointService: 36
+  skins: []
