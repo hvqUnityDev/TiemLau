@@ -31,15 +31,8 @@ public class SlotCoatHub : MonoBehaviour
 
     public void WhenClick()
     {
+        moreInfoNV.UpdateInfoSkin(Skin);
         slotCoat.sprite = imgOn;
-        
-        moreInfoNV.ResetColorCoats();
-        moreInfoNV.FullSkin.sprite = Skin.FullSkin;
-        moreInfoNV.PointServicePlus.text = Skin.PointSkin.ToString();
-        moreInfoNV.NameSkin.text = Skin.NameSkin;
-        moreInfoNV.TxtPrice.text = Skin.Price.ToString();
-        
-        
     }
 
     public void WhenNotClick()

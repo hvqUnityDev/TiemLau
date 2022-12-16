@@ -7,42 +7,68 @@ using UnityEngine.UI;
 
 public class MoreInfoNV : MonoBehaviour
 {
-    public TextMeshProUGUI PointServicePlus;
-    public TextMeshProUGUI Story;
-    public TextMeshProUGUI NameSkin;
-    public Image FullSkin;
-    public TextMeshProUGUI TxtPrice;
-    public List<SlotCoatHub> Coats = new List<SlotCoatHub>();
-    [SerializeField] private TextMeshProUGUI Description;
-    public TextMeshProUGUI txtLevelPointService;
-
+    [SerializeField] private Button btnX;
+    [SerializeField] private Button btnUpLevel;
+    [Header("Part01")]
+    [SerializeField] private TextMeshProUGUI PointServicePlus;
+    [SerializeField] private TextMeshProUGUI Story;
+    [SerializeField] private TextMeshProUGUI NameSkin;
+    [SerializeField] private Image FullSkin;
+    [SerializeField] private TextMeshProUGUI TxtPrice;
+    
+    [Header("Part02")]
+    [SerializeField] private List<SlotCoatHub> Coats = new List<SlotCoatHub>();
     [SerializeField] private Transform contentCoat;
     [SerializeField] private SlotCoatHub slotCoat;
-    [SerializeField] private Button btnX;
     
+    [Header("Part03")]
+    [SerializeField] private TextMeshProUGUI Description;
+    
+    [Header("Part04")]
+    [SerializeField] private TextMeshProUGUI txtCurrentPointService;
+    [SerializeField] private GameObject imgND_txtNextPointService;
+    [SerializeField] private TextMeshProUGUI txtNextPointService;
+    
+    [Header("Part05")]
+    [SerializeField] private TextMeshProUGUI txtDesMove1;
+    [SerializeField] private GameObject objDesSpecialMove;
+    [SerializeField] private TextMeshProUGUI txtDesSpecialMove;
+    [SerializeField] private GameObject objDesMove2;
+    [SerializeField] private TextMeshProUGUI txtDesMove2;
 
+
+    private NhanVien _nhanVien;
     private void Start()
     {
         btnX.onClick.AddListener(() =>
         {
             gameObject.SetActive(false);
         });
+
+        btnUpLevel.onClick.AddListener(UpLevelNV);
     }
 
-    public void Init(NhanVien _nhanVien, UIManager uiManager)
+    public void Init(NhanVien nhanVien, UIManager uiManager)
     {
         Coats = new List<SlotCoatHub>();
+        this._nhanVien = nhanVien;
+        Story.text = nhanVien._nvBase.Story;
+        Description.text = nhanVien._nvBase.Description;
         
-        Story.text = _nhanVien.Story;
-        FullSkin.sprite = _nhanVien.Skins[0].FullSkin;
-        PointServicePlus.text = _nhanVien.Skins[0].PointSkin.ToString();
-        NameSkin.text = _nhanVien.Skins[0].NameSkin;
-        TxtPrice.text = _nhanVien.Skins[0].Price.ToString();
-        Description.text = _nhanVien.Description;
-        
-        UpdateContentCoat(contentCoat, _nhanVien.Skins);
+        UpdateInfoSkin(nhanVien._nvBase.Skins[nhanVien.CurrentSkin]);
+        UpdateContentCoat(contentCoat, nhanVien._nvBase.Skins);
+        UpdateInfoCondition(nhanVien);
     }
-    
+
+    public void UpdateInfoSkin(Skin skin)
+    {
+        ResetColorCoats();
+        FullSkin.sprite = skin.FullSkin;
+        PointServicePlus.text = skin.PointSkin.ToString();
+        NameSkin.text = skin.NameSkin;
+        TxtPrice.text = skin.Price.ToString();
+    }
+
     void UpdateContentCoat(Transform content, List<Skin> skins)
     {
         DeleteContent(content);
@@ -74,6 +100,78 @@ public class MoreInfoNV : MonoBehaviour
         {
             item.WhenNotClick();
         }
+    }
+    
+    void UpdateInfoCondition(NhanVien nhanVien)
+    {
+        txtCurrentPointService.text = nhanVien._nvBase.Skill[nhanVien.Level].LevelPointService.ToString();
+        
+        if (nhanVien.Level + 1 < nhanVien._nvBase.Skill.Count)
+        {
+            imgND_txtNextPointService.gameObject.SetActive(true);
+            txtNextPointService.text = nhanVien._nvBase.Skill[nhanVien.Level + 1].LevelPointService.ToString();
+        }
+        else
+        {
+            imgND_txtNextPointService.gameObject.SetActive(false);
+        }
+
+        UpdateDescriptionMove();
+
+    }
+
+    void UpdateDescriptionMove()
+    {
+        //=============Description of Move=================
+        
+        ConditionID id = _nhanVien._nvBase.Skill[_nhanVien.Level].LevelNormalMoves1.ConditionID;
+        string description = ConditionBD.Conditions[id].Description;
+        txtDesMove1.text = description + $" {_nhanVien._nvBase.Skill[_nhanVien.Level].LevelNormalMoves1.Percent}%";
+        
+        description = "";
+        id = ConditionID.none;
+        id = _nhanVien._nvBase.Skill[_nhanVien.Level].LevelSpecialMoves.ConditionID;
+        
+        if (id != ConditionID.none)
+        {
+            objDesSpecialMove.gameObject.SetActive(true);
+            description 
+                = $"{_nhanVien._nvBase.Skill[_nhanVien.Level].LevelSpecialMoves.PAbility}% khả năng kích hoạt " +
+                  $"{ConditionBD.Conditions[id].Description } "
+                  + $"{_nhanVien._nvBase.Skill[_nhanVien.Level].LevelNormalMoves1.Percent}% "
+                  + $"trong {_nhanVien._nvBase.Skill[_nhanVien.Level].LevelSpecialMoves.TimeDuring} giây";
+            txtDesSpecialMove.text = description;
+        }
+        else
+        {
+            objDesSpecialMove.gameObject.SetActive(false);
+        }
+        
+        description = "";
+        id = ConditionID.none;
+        id = _nhanVien._nvBase.Skill[_nhanVien.Level].LevelNormalMoves2.ConditionID;
+        
+        if (id != ConditionID.none)
+        {
+            objDesMove2.gameObject.SetActive(true);
+            description = ConditionBD.Conditions[id].Description;
+            txtDesMove2.text = description + $" {_nhanVien._nvBase.Skill[_nhanVien.Level].LevelNormalMoves2.Percent}%";
+        }
+        else
+        {
+            objDesMove2.gameObject.SetActive(false);
+        }
+        
+        //==========End===================
+    }
+
+    void UpLevelNV()
+    {
+        if(GameManager.i.Call_UpLevelNV(_nhanVien))
+        {
+            UpdateInfoCondition(_nhanVien);
+        }
+
     }
 
     //public GameObject ContentCoat => contentCoat;

@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     //public static UIManager i;
-    
+
     [SerializeField] private TextMeshProUGUI txt_dDiamon;
     [SerializeField] private TextMeshProUGUI txt_dMoney;
     [SerializeField] private TextMeshProUGUI txt_dCoSo;
@@ -221,13 +221,8 @@ public class UIManager : MonoBehaviour
         DeleteContent(content);
         foreach (var item in nhanViens)
         {
-            UpdateContent(content, item);
+            Instantiate(slotOptionNhanVien, content).GetComponent<SlotOptionNhanVienHub>().Init(item, this);
         }
-    }
-
-    void UpdateContent(Transform content, NhanVien nhanVien = null, Skin skin = null)
-    {
-        Instantiate(slotOptionNhanVien, content).GetComponent<SlotOptionNhanVienHub>().Init(nhanVien, this);
     }
 
     void DeleteContent(Transform content)

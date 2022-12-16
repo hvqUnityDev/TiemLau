@@ -2,20 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NhanVien_", menuName = "NhanVien/Create New NhanVien")]
-public class NhanVien : ScriptableObject
+public class NhanVien : MonoBehaviour
 {
-    [SerializeField] private Sprite avatar;
-    [SerializeField] private string name;
-    [SerializeField] private string description;
-    [SerializeField] private string story;
-    [SerializeField] private int pointService;
-    [SerializeField] private List<Skin> skins;
+    
+    [SerializeField] private int level = 0;
+    [SerializeField] private int currentSkin = 0;
 
-    public Sprite Avatar => avatar;
-    public string Name => name;
-    public string Description => description;
-    public string Story => story;
-    public int PointService => pointService;
-    public List<Skin> Skins => skins;
+    public NhanVienBase _nvBase;
+    
+    public NhanVien (NhanVienBase _base)
+    {
+        this._nvBase = _base;
+    }
+    
+    public int GetPointService()
+    {
+        return _nvBase.Skill[level].LevelPointService;
+    }
+
+    public bool IsUpLevel()
+    {
+        if (_nvBase.Skill[level].PriceToNextValue == -1) 
+        {
+            Debug.Log($"Max Level {level}");
+            return false;
+        }
+        
+        level++;
+        return true;
+    }
+    
+    public int Level => level;
+    public int CurrentSkin => currentSkin;
+    
 }
+

@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class SlotOptionNhanVienHub : MonoBehaviour
 {
-    private NhanVien NVbase;
+    private NhanVien nhanVien;
     public Image imgAvatar;
     public TextMeshProUGUI txtName;
     public TextMeshProUGUI txtDescription;
@@ -16,13 +16,13 @@ public class SlotOptionNhanVienHub : MonoBehaviour
 
     public void Init(NhanVien nv, UIManager uiManager)
     {
-        NVbase = nv;
+        nhanVien = nv;
         
-        imgAvatar.sprite = NVbase.Avatar;
-        txtName.text = NVbase.Name;
-        txtDescription.text = NVbase.Description;
-        txtPointService.text = NVbase.PointService.ToString();
+        imgAvatar.sprite = nhanVien._nvBase.Avatar;
+        txtName.text = nhanVien._nvBase.Name;
+        txtDescription.text = nhanVien._nvBase.Description;
+        txtPointService.text = nhanVien.GetPointService().ToString();
         
-        gameObject.GetComponent<Button>().onClick.AddListener(()=>uiManager.OnMoreInfoNV(NVbase));
+        gameObject.GetComponent<Button>().onClick.AddListener(()=>uiManager.OnMoreInfoNV(nhanVien));
     }
 }

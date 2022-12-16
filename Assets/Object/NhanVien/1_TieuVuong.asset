@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a31615acf014a54f91fb756188f4e83, type: 3}
   m_Name: 1_TieuVuong
   m_EditorClassIdentifier: 
+  level: 0
+  currentSkin: 0
   avatar: {fileID: 21300000, guid: a2debcbde919cfa4aa79adfcb2e4a0d7, type: 3}
   name: "Ti\u1EC3u V\u01B0\u01A1ng"
   description: "G\u1ECDi m\xF3n, l\xEAn m\xF3n, v\u1EC7 sinh b\xE0n cho kh\xE1ch
@@ -21,7 +23,6 @@ MonoBehaviour:
     l\u1EC1 m\u1EC1. L\xFAc n\xE0o c\u0169ng l\u1EA7m b\u1EA9m: \"Ph\xE1t t\xE0i
     th\xEC c\u0169ng ch\u1EB3ng ph\xE1t t\xE0i n\u1ED5i, \u0111\u1EDDi n\xE0y nh\u1EA5t
     \u0111\u1ECBnh ch\u1EB3ng th\u1EC3 gi\xE0u.\""
-  pointService: 24
   skins:
   - avatar: {fileID: 21300000, guid: ef89537fae48d904aa36c358e5fd6d15, type: 3}
     fullSkin: {fileID: 21300000, guid: f5ef7b1bb4b761c41a0c0fcd550d32c3, type: 3}
@@ -59,3 +60,56 @@ MonoBehaviour:
     coat: {fileID: 21300000, guid: bf807dec304cebd439246bd7ad1b385b, type: 3}
     pointSkin: 25
     price: -1
+  skill:
+  - levelPointService: 24
+    priceToNextValue: 10
+    levelNormalMove1:
+      conditionID: 2
+      percent: 10
+    levelSpecialMoves:
+      percentAbility: 3
+      conditionID: 2
+      percent: 500
+      timeDuring: 20
+    levelNormalMove2:
+      conditionID: 0
+      percent: 0
+  - levelPointService: 29
+    priceToNextValue: 15
+    levelNormalMove1:
+      conditionID: 2
+      percent: 30
+    levelSpecialMoves:
+      percentAbility: 8
+      conditionID: 2
+      percent: 500
+      timeDuring: 20
+    levelNormalMove2:
+      conditionID: 1
+      percent: 10
+  - levelPointService: 35
+    priceToNextValue: 20
+    levelNormalMove1:
+      conditionID: 2
+      percent: 35
+    levelSpecialMoves:
+      percentAbility: 10
+      conditionID: 2
+      percent: 500
+      timeDuring: 20
+    levelNormalMove2:
+      conditionID: 1
+      percent: 15
+  - levelPointService: 43
+    priceToNextValue: -1
+    levelNormalMove1:
+      conditionID: 2
+      percent: 35
+    levelSpecialMoves:
+      percentAbility: 12
+      conditionID: 2
+      percent: 500
+      timeDuring: 20
+    levelNormalMove2:
+      conditionID: 1
+      percent: 20
