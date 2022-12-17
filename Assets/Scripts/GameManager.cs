@@ -55,13 +55,13 @@ public class GameManager : MonoBehaviour
 
     public bool Call_UpLevelNV(NhanVien nhanVien)
     {
-        if (nhanVien._nvBase.Skill[nhanVien.Level].PriceToNextValue > pSachDaoTao)
+        if (nhanVien.IsUpLevel())
         {
-            Debug.Log($"Not enough pSachDaoTao - { pSachDaoTao}");
-            return false;
+            pSachDaoTao -= nhanVien._nvBase.Skill[nhanVien.Level - 1].PriceToNextValue;
+            return true;
         }
-        
-        return nhanVien.IsUpLevel();
+
+        return false;
     }
 
      
@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
 }
 
 [Serializable]
-struct  ObjectNhanVienBase
+struct ObjectNhanVienBase
 {
     [SerializeField] private List<NhanVienBase> nhanViensBase_PhucVu;
     [SerializeField] private List<NhanVienBase> nhanViensBase_ThuNgan;

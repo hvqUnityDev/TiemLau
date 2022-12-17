@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class MoreInfoNV : MonoBehaviour
 {
     [SerializeField] private Button btnX;
-    [SerializeField] private Button btnUpLevel;
+    
     [Header("Part01")]
     [SerializeField] private TextMeshProUGUI PointServicePlus;
     [SerializeField] private TextMeshProUGUI Story;
@@ -36,20 +36,72 @@ public class MoreInfoNV : MonoBehaviour
     [SerializeField] private GameObject objDesMove2;
     [SerializeField] private TextMeshProUGUI txtDesMove2;
 
+    [Header("Part06")]
+    [SerializeField] private TextMeshProUGUI txtDaoTao;
+    
+    [Header("Part06")]
+    [SerializeField] private TextMeshProUGUI txtPriceNextLevel;
+    [SerializeField] private Button btnUpLevel;
 
     private NhanVien _nhanVien;
     private void Start()
     {
-        btnX.onClick.AddListener(() =>
-        {
-            gameObject.SetActive(false);
-        });
+        
 
         btnUpLevel.onClick.AddListener(UpLevelNV);
     }
 
     public void Init(NhanVien nhanVien, UIManager uiManager)
     {
+        btnX.onClick.RemoveAllListeners();
+
+        ValueNhanVien value = ValueNhanVien.none;
+        btnX.onClick.AddListener(() =>
+        {
+            foreach (var item in GameManager.i.NV_PhucVu)
+            {
+                if (item == nhanVien)
+                {
+                    uiManager.ReLoadContentNhanVien(ValueNhanVien.NVPV);
+                }
+            }
+            
+            foreach (var item in GameManager.i.NV_DauBep)
+            {
+                if (item == nhanVien)
+                {
+                    uiManager.ReLoadContentNhanVien(ValueNhanVien.NVDB);
+                }
+            }
+            
+            foreach (var item in GameManager.i.NV_PhuBep)
+            {
+                if (item == nhanVien)
+                {
+                    uiManager.ReLoadContentNhanVien(ValueNhanVien.NVPB);
+                }
+            }
+            
+            foreach (var item in GameManager.i.NV_ThuNgan)
+            {
+                if (item == nhanVien)
+                {
+                    uiManager.ReLoadContentNhanVien(ValueNhanVien.NVTN);
+                }
+            }
+            
+            foreach (var item in GameManager.i.NV_PG)
+            {
+                if (item == nhanVien)
+                {
+                    uiManager.ReLoadContentNhanVien(ValueNhanVien.NVPG);
+                }
+            }
+            
+            
+            gameObject.SetActive(false);
+        });
+        
         Coats = new List<SlotCoatHub>();
         this._nhanVien = nhanVien;
         Story.text = nhanVien._nvBase.Story;
@@ -123,6 +175,18 @@ public class MoreInfoNV : MonoBehaviour
     void UpdateDescriptionMove()
     {
         //=============Description of Move=================
+        txtDaoTao.text = $"Hien tai so huu: {GameManager.i.p_SachDaoTao}";
+        int priceNextLevel = _nhanVien._nvBase.Skill[_nhanVien.Level].PriceToNextValue;
+        txtPriceNextLevel.text = $" x {priceNextLevel.ToString()}";
+
+        if (GameManager.i.p_SachDaoTao >= priceNextLevel)
+        {
+            txtPriceNextLevel.color = Color.white;
+        }
+        else
+        {
+            txtPriceNextLevel.color = Color.red;
+        }
         
         ConditionID id = _nhanVien._nvBase.Skill[_nhanVien.Level].LevelNormalMoves1.ConditionID;
         string description = ConditionBD.Conditions[id].Description;
@@ -167,6 +231,12 @@ public class MoreInfoNV : MonoBehaviour
 
     void UpLevelNV()
     {
+        if (_nhanVien._nvBase.Skill[_nhanVien.Level].PriceToNextValue > GameManager.i.p_SachDaoTao)
+        {
+            Debug.Log($"Not enough pSachDaoTao - { GameManager.i.p_SachDaoTao}");
+            return;
+        }
+
         if(GameManager.i.Call_UpLevelNV(_nhanVien))
         {
             UpdateInfoCondition(_nhanVien);
@@ -174,5 +244,4 @@ public class MoreInfoNV : MonoBehaviour
 
     }
 
-    //public GameObject ContentCoat => contentCoat;
 }

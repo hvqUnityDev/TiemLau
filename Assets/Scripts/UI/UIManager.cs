@@ -225,6 +225,30 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void ReLoadContentNhanVien(ValueNhanVien value)
+    {
+        if (value == ValueNhanVien.NVPV)
+        {
+            OnClick_btn_NVPV();
+        }else if (value == ValueNhanVien.NVTN)
+        {
+            OnClick_btn_NVTN();
+        }else if (value == ValueNhanVien.NVPB)
+        {
+            OnClick_btn_NVPB();
+        }else if (value == ValueNhanVien.NVDB)
+        {
+            OnClick_btn_NVDB();
+        }else if (value == ValueNhanVien.NVPG)
+        {
+            OnClick_btn_NVPG();
+        }
+        else
+        {
+            Debug.Log("Not in enum ValueNhanVien???");
+        }
+    }
+
     void DeleteContent(Transform content)
     {
         foreach (Transform item in content)
@@ -242,4 +266,14 @@ public class UIManager : MonoBehaviour
     
     #endregion
     
+}
+
+public enum ValueNhanVien
+{
+    none,
+    NVPV,
+    NVTN,
+    NVPB,
+    NVDB,
+    NVPG
 }
