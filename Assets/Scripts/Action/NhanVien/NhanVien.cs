@@ -8,21 +8,21 @@ public class NhanVien : MonoBehaviour
     [SerializeField] private int level = 0;
     [SerializeField] private int currentSkin = 0;
 
-    public NhanVienBase _nvBase;
+    private NhanVienBase _nvBase;
     
-    public NhanVien (NhanVienBase _base)
+    public NhanVien(NhanVienBase _nvBase)
     {
-        this._nvBase = _base;
+        this._nvBase = _nvBase;
     }
     
     public int GetPointService()
     {
-        return _nvBase.Skill[level].LevelPointService;
+        return NVBase.Skill[level].LevelPointService;
     }
 
     public bool IsUpLevel()
     {
-        if (_nvBase.Skill[level].PriceToNextValue == -1) 
+        if (NVBase.Skill[level].PriceToNextValue == -1) 
         {
             Debug.Log($"Max Level {level}");
             return false;
@@ -34,6 +34,7 @@ public class NhanVien : MonoBehaviour
     
     public int Level => level;
     public int CurrentSkin => currentSkin;
+    public NhanVienBase NVBase => _nvBase;
     
 }
 

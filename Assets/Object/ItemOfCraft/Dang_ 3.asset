@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cb577990a8de014da995c8df3c60c49, type: 3}
+  m_Name: Dang_ 3
+  m_EditorClassIdentifier: 
+  id: 3
+  img: {fileID: 21300000, guid: 0575900d787929140a08531becdc0eeb, type: 3}
+  level: 2
+  description: "C\xE0 ph\xEA khi ng\u1EEDi c\xF3 v\u1ECB th\u01A1m n\u1ED3ng, v\u1ECB
+    ch\xE1t v\xE0 chua n\u1ED3ng \u0111\u1EADm trong v\u1ECB \u0111\u1EAFng, tr\u0103m
+    v\u1ECB ph\u1EE9c t\u1EA1p."
+  priceToSell: 4

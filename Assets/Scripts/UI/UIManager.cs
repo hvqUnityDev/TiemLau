@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI txt_dPhucVu;
     [SerializeField] private TextMeshProUGUI txt_dThucAn;
 
+    [Header("btn Option")]
     [SerializeField] private Button btnCuaTiem;
     [SerializeField] private Button btnGhep;
     [SerializeField] private Button btnThucDon;
@@ -23,24 +24,20 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Button btnSangTao;
     [SerializeField] private Button btnCuaHang;
 
+    [Header("Option")]
     [SerializeField] private GameObject option;
-    [SerializeField] private GameObject optionCuaTiem;
-    [SerializeField] private GameObject optionGhep;
-    [SerializeField] private GameObject optionThucAn;
+
+    public Action TurnOffOption;
+
+    [Header("Craft")]
+    [SerializeField] private OptionCrafting _optionCrafting;
+
+    [Header("NhanVien")]
+    [SerializeField] private Button btnXNhanVien;
     [SerializeField] private GameObject optionNhanVien;
     [SerializeField] private Transform contentNhanVien;
     [SerializeField] private SlotOptionNhanVienHub slotOptionNhanVien;
     [SerializeField] private MoreInfoNV moreInfoNV;
-    [SerializeField] private GameObject optionSangTao;
-    [SerializeField] private GameObject optionCuaHang;
-
-    [SerializeField] private Button btnXCuaTiem;
-    [SerializeField] private Button btnXGhep;
-    [SerializeField] private Button btnXThucDon;
-    [SerializeField] private Button btnXNhanVien;
-    [SerializeField] private Button btnXSangTao;
-    [SerializeField] private Button btnXCuaHang;
-
     private Color colorOnClick = Color.yellow;
     private Color colorOffClick = Color.white;
     [SerializeField] private Button btn_NVPV;
@@ -48,18 +45,21 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Button btn_NVPB;
     [SerializeField] private Button btn_NVDB;
     [SerializeField] private Button btn_NVPG;
+    
+    [SerializeField] private GameObject optionCuaTiem;
+    [SerializeField] private GameObject optionThucAn;
+    [SerializeField] private GameObject optionSangTao;
+    [SerializeField] private GameObject optionCuaHang;
+
+    [Header("btn X")]
+    [SerializeField] private Button btnXCuaTiem;
+    [SerializeField] private Button btnXThucDon;
+    [SerializeField] private Button btnXSangTao;
+    [SerializeField] private Button btnXCuaHang;
 
     private void Start()
     {
-        // if (i == null)
-        // {
-        //     i = this;
-        //     DontDestroyOnLoad(gameObject);
-        // }else if (i != this)
-        // {
-        //     Destroy(gameObject);
-        // }
-
+        
         btnCuaTiem.onClick.AddListener(Click_CuaTiem);
         btnGhep.onClick.AddListener(Click_Ghep);
         btnThucDon.onClick.AddListener(Click_ThucDon);
@@ -77,10 +77,12 @@ public class UIManager : MonoBehaviour
 
         DeleteColorButton();
         
-        option.gameObject.SetActive(false);
+        option.SetActive(false);
         optionNhanVien.gameObject.SetActive(false);
         moreInfoNV.gameObject.SetActive(false);
 
+        TurnOffOption += () => {option.SetActive(false);};
+        _optionCrafting.Init(this);
     }
 
 
@@ -117,7 +119,9 @@ public class UIManager : MonoBehaviour
     }
     void Click_Ghep()
     {
-        Debug.Log("TODO: Click_Ghep");
+        option.gameObject.SetActive(true);
+        _optionCrafting.gameObject.SetActive(true);
+        _optionCrafting.UpdateSlot(GameManager.i.Bag);
     }
     void Click_ThucDon()
     {
@@ -146,10 +150,7 @@ public class UIManager : MonoBehaviour
     {
         Debug.Log("TODO: Click_XCuaTiem");
     }
-    public void Click_XGhep()
-    {
-        Debug.Log("TODO: Click_XGhep");
-    }
+    
     public void Click_XThucDon()
     {
         Debug.Log("TODO: Click_XThucDon");
@@ -265,6 +266,7 @@ public class UIManager : MonoBehaviour
     }
     
     #endregion
+    public OptionCrafting OptionCrafting => _optionCrafting;
     
 }
 

@@ -442,7 +442,7 @@ TextureImporter:
         width: 135
         height: 134
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -450,6 +450,69 @@ TextureImporter:
       bones: []
       spriteID: 9392adc5c70c183438259bdd94590d82
       internalID: 1584468167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icon_11
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 1816
+        width: 126
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f289bdb799e68e4e918bb3ba04c9a61
+      internalID: -161064116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icon_12
+      rect:
+        serializedVersion: 2
+        x: 1350
+        y: 143
+        width: 142
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 503db783e5152254f829a60ce54e48bb
+      internalID: -775791054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: icon_13
+      rect:
+        serializedVersion: 2
+        x: 1350
+        y: 1
+        width: 142
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75ea620f49b76f147a1fd5e4aa25f8e8
+      internalID: -600397074
       vertices: []
       indices: 
       edges: []
@@ -469,10 +532,13 @@ TextureImporter:
       icon_3: -273330325
       icon_10: 1584468167
       icon_4: 1505482217
+      icon_11: -161064116
       sactx-0-2048x2048-ETC2-Common1-1328aaf4_0: -99203594
+      icon_12: -775791054
       sactx-0-2048x2048-ETC2-Common1-1328aaf4_4: 2090930876
       icon_0: -795705292
       icon_5: 518012386
+      icon_13: -600397074
       icon_2: 1081186874
       sactx-0-2048x2048-ETC2-Common1-1328aaf4_2: 1312425788
       icon_7: 2096312806

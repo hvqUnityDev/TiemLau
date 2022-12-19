@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cb577990a8de014da995c8df3c60c49, type: 3}
+  m_Name: Cay_ 2
+  m_EditorClassIdentifier: 
+  id: 4
+  img: {fileID: 21300000, guid: 4a4eeb0c038b1d84ba29f128b4e7c844, type: 3}
+  level: 1
+  description: "\u1EDAt Erjingtiao cay th\u01A1m v\u1EEBa mi\u1EC7ng, do l\xE0 nguy\xEAn
+    li\u1EC7u ch\xEDnh c\u1EE7a m\xF3n t\u01B0\u01A1ng \u0110\u1EADu B\u1EA3n n\xEAn
+    \u0111\xE3 tr\u1EDF th\xE0nh lo\u1EA1i th\u1EF1c v\u1EADt ch\u1EE7 ch\u1ED1t."
+  priceToSell: 2

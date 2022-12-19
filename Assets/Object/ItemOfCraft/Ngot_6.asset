@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cb577990a8de014da995c8df3c60c49, type: 3}
+  m_Name: Ngot_6
+  m_EditorClassIdentifier: 
+  id: 2
+  img: {fileID: 21300000, guid: 51a443e7bb70e274ca723d447b50690c, type: 3}
+  level: 5
+  description: "Chi\u1EBFt su\u1EA5t tinh thoa c\u1EE7a nhi\u1EC1u v\u1ECB ng\u1ECDt
+    kh\xE1c nhau. \xD4i c\xE1i v\u1ECB ng\u1ECDt tinh khi\u1EBFt n\xE0y, th\u1EADt
+    h\u1EA1nh ph\xFAc qu\xE1 \u0111i..."
+  priceToSell: 0

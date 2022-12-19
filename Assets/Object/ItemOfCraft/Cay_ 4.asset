@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cb577990a8de014da995c8df3c60c49, type: 3}
+  m_Name: Cay_ 4
+  m_EditorClassIdentifier: 
+  id: 4
+  img: {fileID: 21300000, guid: 706542651aa65624ba900e6f99192e1b, type: 3}
+  level: 3
+  description: "\u1EDAt c\u1EF1a g\xE0 ph\u1ED5 bi\xEAn \u1EDF V\xE2n Nam, Qu\xFD
+    Ch\xE2u v\xE0 T\u1EE9 Xuy\xEAn, c\xF3 v\u1ECB cay m\xE0 c\xE1c lo\u1EA1i \u1EDBt
+    th\xF4ng th\u01B0\u1EDDng kh\xF4ng th\u1EC3 s\xE1ng \u0111\u01B0\u1EE3c."
+  priceToSell: 6

@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a31615acf014a54f91fb756188f4e83, type: 3}
   m_Name: 1_TieuVuong
   m_EditorClassIdentifier: 
-  level: 0
-  currentSkin: 0
   avatar: {fileID: 21300000, guid: a2debcbde919cfa4aa79adfcb2e4a0d7, type: 3}
   name: "Ti\u1EC3u V\u01B0\u01A1ng"
   description: "G\u1ECDi m\xF3n, l\xEAn m\xF3n, v\u1EC7 sinh b\xE0n cho kh\xE1ch
@@ -113,3 +111,4 @@ MonoBehaviour:
     levelNormalMove2:
       conditionID: 1
       percent: 20
+  group: 1

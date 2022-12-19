@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cb577990a8de014da995c8df3c60c49, type: 3}
+  m_Name: Cay_ 6
+  m_EditorClassIdentifier: 
+  id: 4
+  img: {fileID: 21300000, guid: 8d01ef0bbc421ca46ac543b648c26c8a, type: 3}
+  level: 5
+  description: "Tinh hoa \u0111\u01B0\u1EE3c chi\u1EBFt su\u1EA5t t\u1EEB nhi\u1EC1u
+    v\u1ECB cay kh\xE1c nhau. Cay qu\xE1, cay \u0111\u1EBF ch\u1EA3y c\u1EA3 n\u01B0\u1EDBc
+    m\u1EAFt"
+  priceToSell: 0
