@@ -7,39 +7,47 @@ using UnityEngine.UI;
 
 public class SlotCoatHub : MonoBehaviour
 {
-    public Image ImgCoat;
-    public Skin Skin;
-    private MoreInfoNV moreInfoNV;
-    
-    [SerializeField] private Image slotCoat;
+    [SerializeField] private Image slotBG;
+    [SerializeField] private Image imgCoat;
     [SerializeField] private Button btnCoat;
     [SerializeField] private Sprite imgOn;
     [SerializeField] private Sprite imgOff;
+    
+    private NhanVien _nhanVien;
+    private Skin skin;
+    private MoreInfoNV moreInfoNV;
 
     private void Start()
     {
-        WhenNotClick();
+        TurnOffImg();
         btnCoat.onClick.AddListener(WhenClick);
     }
 
-    public void Init(MoreInfoNV myDad, Skin skin)
+    public void Init(MoreInfoNV myDad, NhanVien nhanVien, Skin skin)
     {
         moreInfoNV = myDad;
-        Skin = skin;
-        ImgCoat.sprite = Skin.Coat;
+        _nhanVien = nhanVien;
+        this.skin = skin;
+        imgCoat.sprite = skin.Coat;
+        
+        if(nhanVien.ObjCurrentSkin == skin) WhenClick();
     }
 
-    public void WhenClick()
+    private void WhenClick()
     {
-        moreInfoNV.UpdateInfoSkin(Skin);
-        slotCoat.sprite = imgOn;
+        moreInfoNV.UpdateInfoSkin(_nhanVien, skin);
+        
+        TurnOnImg();
     }
 
-    public void WhenNotClick()
+    public void TurnOffImg()
     {
-        slotCoat.sprite = imgOff;
+        slotBG.sprite = imgOff;
     }
 
-    public Image SlotCoat => slotCoat;
+    public void TurnOnImg()
+    {
+        slotBG.sprite = imgOn;
+    }
     
 }

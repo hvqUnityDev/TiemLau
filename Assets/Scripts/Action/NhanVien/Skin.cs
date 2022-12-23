@@ -21,12 +21,12 @@ public class Skin
     public Sprite Coat => coat;
     public int PointSkin => pointSkin;
     public int Price => price;
-    private CondtionSkin CondtionSkin => condtionSkin;
+    public CondtionSkin CondtionSkin => condtionSkin;
 }
 
 public enum CondtionSkin
 {
-    Buy,
-    Bought,
+    CanBuy,
+    Default,
     Special
 }

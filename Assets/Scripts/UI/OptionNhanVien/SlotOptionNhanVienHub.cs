@@ -9,11 +9,11 @@ using UnityEngine.UI;
 public class SlotOptionNhanVienHub : MonoBehaviour
 {
     private NhanVien nhanVien;
-    public Image imgAvatar;
-    public TextMeshProUGUI txtName;
-    public TextMeshProUGUI txtDescription;
-    public TextMeshProUGUI txtPointService;
-    public List<Image> stars;
+    [SerializeField] private Image imgAvatar;
+    [SerializeField] private TextMeshProUGUI txtName;
+    [SerializeField] private TextMeshProUGUI txtDescription;
+    [SerializeField] private TextMeshProUGUI txtPointService;
+    [SerializeField] private List<Image> stars;
 
     [SerializeField] private Sprite imgStarTurnOn;
     public void Init(NhanVien nv, UIManager uiManager)
@@ -21,7 +21,7 @@ public class SlotOptionNhanVienHub : MonoBehaviour
         nhanVien = nv;
 
         Debug.Log("TODO: add current Skin");
-        imgAvatar.sprite = nhanVien.NVBase.Avatar;
+        imgAvatar.sprite = nhanVien.ObjCurrentSkin.Avatar;
         txtName.text = nhanVien.NVBase.Name;
         txtDescription.text = nhanVien.NVBase.Description;
         txtPointService.text = nhanVien.GetPointService().ToString();

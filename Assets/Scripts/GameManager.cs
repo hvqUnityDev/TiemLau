@@ -78,6 +78,22 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void Call_ChangeSkinAfterBuy(NhanVien nhanVien, Skin skin)
+    {
+        nhanVien.SetCurrentSkin(skin);
+    }
+
+    public void Call_TryBuyTheSkin(NhanVien nhanVien, Skin skin)
+    {
+        if (dDiamond < skin.Price)
+        {
+            Debug.Log("TODO: not enough diamond");
+            return;
+        }
+
+        nhanVien.UnLockSkin(skin);
+    }
+
     public bool Call_UpLevelNV(NhanVien nhanVien)
     {
         if (nhanVien.IsUpLevel())

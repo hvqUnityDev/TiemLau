@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a31615acf014a54f91fb756188f4e83, type: 3}
   m_Name: 7_CoTien
   m_EditorClassIdentifier: 
-  avatar: {fileID: 21300000, guid: 883746371b43ad742af127a1b85d726a, type: 3}
   name: "C\xF4 Ti\u1EC1n"
   description: "Th\xE1nh to\xE1n cho kh\xE1ch \u1EDF \u0111\u1EA1i s\u1EA3nh"
   story: "Ng\u01B0\u1EDDi ph\u1EE5 n\u1EEF c\xF3 n\u0103ng l\u1EF1c, c\xF3 th\u1EC3
@@ -25,30 +24,35 @@ MonoBehaviour:
     coat: {fileID: 21300000, guid: 7b4d418483f4fb54eb2bfa4c54669de2, type: 3}
     pointSkin: 0
     price: 0
+    condtionSkin: 1
   - avatar: {fileID: 21300000, guid: 883746371b43ad742af127a1b85d726a, type: 3}
     fullSkin: {fileID: 21300000, guid: a0925efec35b1d940b882c52fe0d2b25, type: 3}
     nameSkin: "Trang ph\u1EE5c \u0111\u1ECF c\u1EE7a C\xF4 Ti\u1EC1n"
     coat: {fileID: 21300000, guid: 9fa32c34002a6f84180d1ff1b1c77f2c, type: 3}
     pointSkin: 5
     price: 300
+    condtionSkin: 0
   - avatar: {fileID: 21300000, guid: 6d0fe5366a18a854f894edf1f1084afa, type: 3}
     fullSkin: {fileID: 21300000, guid: d0ad3e44382770f4897f7f9f1adf1759, type: 3}
     nameSkin: "Trang ph\u1EE5c lam c\u1EE7a C\xF4 Ti\u1EC1n"
     coat: {fileID: 21300000, guid: f58775ad5f44a4943bd670be3003bbd0, type: 3}
     pointSkin: 10
     price: 500
+    condtionSkin: 0
   - avatar: {fileID: 21300000, guid: ae842879c7975f54da5cd3cfda98c629, type: 3}
     fullSkin: {fileID: 21300000, guid: f3c79d08b0d526e47a635cf59373440c, type: 3}
     nameSkin: "Trang ph\u1EE5c \u0111en c\u1EE7a C\xF4 Ti\u1EC1n"
     coat: {fileID: 21300000, guid: 593e0ec238b8ec0488828a131165b8da, type: 3}
     pointSkin: 10
     price: 800
+    condtionSkin: 0
   - avatar: {fileID: 21300000, guid: cf7ab4329054e4c4f9f42536966f69bd, type: 3}
     fullSkin: {fileID: 21300000, guid: 351c66a46cd9d254f800e2fc9e7c2799, type: 3}
     nameSkin: "Trang ph\u1EE5c Neon c\u1EE7a C\xF4 Ti\u1EC1n"
     coat: {fileID: 21300000, guid: cd20a731b579f444180711791caa0736, type: 3}
     pointSkin: 25
     price: -1
+    condtionSkin: 0
   skill:
   - levelPointService: 75
     priceToNextValue: 10

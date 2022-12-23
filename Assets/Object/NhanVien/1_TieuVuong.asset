@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a31615acf014a54f91fb756188f4e83, type: 3}
   m_Name: 1_TieuVuong
   m_EditorClassIdentifier: 
-  avatar: {fileID: 21300000, guid: a2debcbde919cfa4aa79adfcb2e4a0d7, type: 3}
   name: "Ti\u1EC3u V\u01B0\u01A1ng"
   description: "G\u1ECDi m\xF3n, l\xEAn m\xF3n, v\u1EC7 sinh b\xE0n cho kh\xE1ch
     nh\xE0 h\xE0ng"
@@ -28,36 +27,42 @@ MonoBehaviour:
     coat: {fileID: 21300000, guid: 0b6720f014dd16b4f993e89a68bd4cb9, type: 3}
     pointSkin: 0
     price: 0
+    condtionSkin: 1
   - avatar: {fileID: 21300000, guid: 676f9f3fea8f6904993725ce11733c21, type: 3}
     fullSkin: {fileID: 21300000, guid: c7448e0c4783b0a48b9bc1b0a50580f7, type: 3}
     nameSkin: "Trang ph\u1EE5c lam c\u1EE7a Ti\u1EC3u V\u01B0\u01A1ng"
     coat: {fileID: 21300000, guid: f58775ad5f44a4943bd670be3003bbd0, type: 3}
     pointSkin: 10
     price: 500
+    condtionSkin: 0
   - avatar: {fileID: 2124798505, guid: 016d0d29264a43347972cd3141554539, type: 3}
     fullSkin: {fileID: -1506927104, guid: 016d0d29264a43347972cd3141554539, type: 3}
     nameSkin: "Trang ph\u1EE5c \u0111en c\u1EE7a Ti\u1EC3u V\u01B0\u01A1ng"
     coat: {fileID: 21300000, guid: 593e0ec238b8ec0488828a131165b8da, type: 3}
     pointSkin: 15
     price: 600
+    condtionSkin: 0
   - avatar: {fileID: 21300000, guid: a2debcbde919cfa4aa79adfcb2e4a0d7, type: 3}
     fullSkin: {fileID: 21300000, guid: a3ae7d622b7d00e419d96a063bca74e6, type: 3}
     nameSkin: "Skin n\u0103m m\u1EDBi c\u1EE7a Ti\u1EC3u V\u01B0\u01A1ng"
     coat: {fileID: 21300000, guid: 5fe324e5aa9c7b6468c37723b0d586f9, type: 3}
     pointSkin: 25
     price: 700
+    condtionSkin: 0
   - avatar: {fileID: 21300000, guid: 17486bf54bfd6054da63a06ab0ff956c, type: 3}
     fullSkin: {fileID: 21300000, guid: 1b3af246c2c749442834f9cc1211b977, type: 3}
     nameSkin: "Skin t\xF4m h\xF9m c\u1EE7a Ti\u1EC3u V\u01B0\u01A1ng"
     coat: {fileID: 21300000, guid: 63d2fc1d87171c8488c89cbeb2df548a, type: 3}
     pointSkin: 30
     price: 800
+    condtionSkin: 0
   - avatar: {fileID: 21300000, guid: e673cbc2d62b91747a82a95ffdd129b5, type: 3}
     fullSkin: {fileID: 21300000, guid: 8ebe6ccf4b7e95d4ea3208770c7378d1, type: 3}
     nameSkin: "Skin neon c\u1EE7a Ti\u1EC3u V\u01B0\u01A1ng"
     coat: {fileID: 21300000, guid: bf807dec304cebd439246bd7ad1b385b, type: 3}
     pointSkin: 25
     price: -1
+    condtionSkin: 0
   skill:
   - levelPointService: 24
     priceToNextValue: 10

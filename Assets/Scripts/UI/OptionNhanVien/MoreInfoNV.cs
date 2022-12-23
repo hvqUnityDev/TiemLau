@@ -18,9 +18,10 @@ public class MoreInfoNV : MonoBehaviour
     [SerializeField] private Button btnBuy;
     [SerializeField] private TextMeshProUGUI txtPrice;
     [SerializeField] private TextMeshProUGUI txtConditionSkin;
+    [SerializeField] private Button btnUse;
 
-    [Header("Part02")]
-    [SerializeField] private List<SlotCoatHub> Coats = new List<SlotCoatHub>();
+    [Header("Part02")] 
+    [SerializeField] private List<SlotCoatHub> Coats;
     [SerializeField] private Transform contentCoat;
     [SerializeField] private SlotCoatHub slotCoat;
     
@@ -45,7 +46,7 @@ public class MoreInfoNV : MonoBehaviour
     [Header("Part06")]
     [SerializeField] private TextMeshProUGUI txtDaoTao;
     
-    [Header("Part06")]
+    [Header("Part07")]
     [SerializeField] private TextMeshProUGUI txtPriceNextLevel;
     [SerializeField] private Button btnUpLevel;
 
@@ -80,28 +81,21 @@ public class MoreInfoNV : MonoBehaviour
             {
                 uiManager.ReLoadContentNhanVien(ValueNhanVien.NVPG);
             }
-            
-            foreach (var item in GameManager.i.NV_PG)
-            {
-                if (item == nhanVien)
-                {
-                    uiManager.ReLoadContentNhanVien(ValueNhanVien.NVPG);
-                }
-            }
-            
-            
+
             gameObject.SetActive(false);
         });
         
-        Coats = new List<SlotCoatHub>();
-        this._nhanVien = nhanVien;
+        //Coats = new List<SlotCoatHub>();
+        _nhanVien = nhanVien;
         Story.text = nhanVien.NVBase.Story;
         Description.text = nhanVien.NVBase.Description;
         
-        UpdateInfoSkin(nhanVien.NVBase.Skins[nhanVien.CurrentSkin]);
         UpdateContentCoat(contentCoat, nhanVien.NVBase.Skins);
+        UpdateInfoSkin(nhanVien, nhanVien.ObjCurrentSkin);
+        
         UpdateStars(nhanVien.Level);
         UpdateInfoCondition(nhanVien);
+        UpdateConditionSkin(nhanVien, nhanVien.ObjCurrentSkin);
     }
 
     void UpdateStars(int n)
@@ -122,31 +116,32 @@ public class MoreInfoNV : MonoBehaviour
         }
     }
 
-    public void UpdateInfoSkin(Skin skin)
+    public void UpdateInfoSkin(NhanVien nhanVien, Skin skin)
     {
         ResetColorCoats();
+        
         imgFullSkin.sprite = skin.FullSkin;
-        PointServicePlus.text = skin.PointSkin.ToString();
+        PointServicePlus.text = $"Điểm phục vụ +{skin.PointSkin.ToString()}";
         NameSkin.text = skin.NameSkin;
         txtPrice.text = skin.Price.ToString();
+        
+        UpdateConditionSkin(nhanVien, skin);
     }
 
     void UpdateContentCoat(Transform content, List<Skin> skins)
     {
         DeleteContent(content);
+        Coats = new List<SlotCoatHub>();
+        
         foreach (var item in skins)
         {
-            UpdateContent(content, item);
+            var slot = Instantiate(slotCoat, content).GetComponent<SlotCoatHub>();
+            slot.Init(this, _nhanVien, item);
+            slot.TurnOnImg();
+            Coats.Add(slot);
         }
     }
-
-    void UpdateContent(Transform content, Skin skin)
-    {
-        var slot = Instantiate(slotCoat,content).GetComponent<SlotCoatHub>();
-        //TODO: Data
-        slot.Init(this, skin);
-        Coats.Add(slot);
-    }
+    
 
     void DeleteContent(Transform content)
     {
@@ -160,7 +155,7 @@ public class MoreInfoNV : MonoBehaviour
     {
         foreach (var item in Coats)
         {
-            item.WhenNotClick();
+            item.TurnOffImg();
         }
     }
     
@@ -253,4 +248,49 @@ public class MoreInfoNV : MonoBehaviour
         }
     }
 
+    void UpdateConditionSkin(NhanVien nhanVien, Skin skin)
+    {
+        if (!nhanVien.ConditionSkins[skin])
+        {
+            txtConditionSkin.gameObject.SetActive(false);
+            btnUse.gameObject.SetActive(false);
+            btnChange.gameObject.SetActive(true);
+            btnBuy.gameObject.SetActive(true);
+            txtPrice.text = skin.Price.ToString();
+            
+            btnChange.onClick.RemoveAllListeners();
+            btnChange.onClick.AddListener(() => Debug.Log("TODO: Change..."));
+            
+            btnBuy.onClick.RemoveAllListeners();
+            btnBuy.onClick.AddListener(() =>
+            {
+                GameManager.i.Call_TryBuyTheSkin(nhanVien, skin);
+                UpdateConditionSkin(nhanVien, skin);
+            });
+        }
+        else
+        {
+            btnChange.gameObject.SetActive(false);
+            btnBuy.gameObject.SetActive(false);
+            
+            if (nhanVien.ObjCurrentSkin == skin)
+            {
+                txtConditionSkin.gameObject.SetActive(true);
+                txtConditionSkin.text = "Dang su dung";
+                btnUse.gameObject.SetActive(false);
+            }
+            else
+            {
+                txtConditionSkin.gameObject.SetActive(false);
+                btnUse.gameObject.SetActive(true);
+                btnUse.onClick.RemoveAllListeners();
+                btnUse.onClick.AddListener(() =>
+                {
+                    GameManager.i.Call_ChangeSkinAfterBuy(nhanVien, skin);
+                    UpdateConditionSkin(nhanVien, skin);
+                });
+            }
+        }
+    }
+    
 }

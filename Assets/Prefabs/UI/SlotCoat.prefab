@@ -91,15 +91,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ba575d75683cb4a9c5f3b2194edffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ImgCoat: {fileID: 1397201013413966017}
-  CurrentSkin:
-    avatar: {fileID: 0}
-    fullSkin: {fileID: 0}
-    nameSkin: 
-    coat: {fileID: 0}
-    pointSkin: 0
-    price: 0
-  slotCoat: {fileID: 1397201012611845789}
+  slotBG: {fileID: 1397201012611845789}
+  imgCoat: {fileID: 1397201013413966017}
   btnCoat: {fileID: 5882768957348270019}
   imgOn: {fileID: -319143414, guid: f4a1896bbc4472340870545dd13e717a, type: 3}
   imgOff: {fileID: 827617674, guid: f4a1896bbc4472340870545dd13e717a, type: 3}
@@ -213,7 +206,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a03d13091c054854cbfdf134aa95731e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0b6720f014dd16b4f993e89a68bd4cb9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
