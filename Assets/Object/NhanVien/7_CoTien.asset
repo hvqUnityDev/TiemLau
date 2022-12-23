@@ -15,6 +15,117 @@ MonoBehaviour:
   avatar: {fileID: 21300000, guid: 883746371b43ad742af127a1b85d726a, type: 3}
   name: "C\xF4 Ti\u1EC1n"
   description: "Th\xE1nh to\xE1n cho kh\xE1ch \u1EDF \u0111\u1EA1i s\u1EA3nh"
-  story: 
-  pointService: 70
-  skins: []
+  story: "Ng\u01B0\u1EDDi ph\u1EE5 n\u1EEF c\xF3 n\u0103ng l\u1EF1c, c\xF3 th\u1EC3
+    t\xEDnh nh\u1EA9m nh\u01B0 m\u1ED9t chi\u1EBFc m\xE1y t\xEDnh. Trong s\u1EF1
+    nghi\u1EC7p tr\u01B0\u1EDBc nay ch\u01B0a t\u1EEBng m\u1EAFc l\u1ED7i."
+  skins:
+  - avatar: {fileID: 21300000, guid: c4fc6bb50889feb41a4985cc55ebb15c, type: 3}
+    fullSkin: {fileID: 21300000, guid: 350fc88f4f6114641ab316b5e8321572, type: 3}
+    nameSkin: "Trang ph\u1EE5c ban \u0111\u1EA7u"
+    coat: {fileID: 21300000, guid: 7b4d418483f4fb54eb2bfa4c54669de2, type: 3}
+    pointSkin: 0
+    price: 0
+  - avatar: {fileID: 21300000, guid: 883746371b43ad742af127a1b85d726a, type: 3}
+    fullSkin: {fileID: 21300000, guid: a0925efec35b1d940b882c52fe0d2b25, type: 3}
+    nameSkin: "Trang ph\u1EE5c \u0111\u1ECF c\u1EE7a C\xF4 Ti\u1EC1n"
+    coat: {fileID: 21300000, guid: 9fa32c34002a6f84180d1ff1b1c77f2c, type: 3}
+    pointSkin: 5
+    price: 300
+  - avatar: {fileID: 21300000, guid: 6d0fe5366a18a854f894edf1f1084afa, type: 3}
+    fullSkin: {fileID: 21300000, guid: d0ad3e44382770f4897f7f9f1adf1759, type: 3}
+    nameSkin: "Trang ph\u1EE5c lam c\u1EE7a C\xF4 Ti\u1EC1n"
+    coat: {fileID: 21300000, guid: f58775ad5f44a4943bd670be3003bbd0, type: 3}
+    pointSkin: 10
+    price: 500
+  - avatar: {fileID: 21300000, guid: ae842879c7975f54da5cd3cfda98c629, type: 3}
+    fullSkin: {fileID: 21300000, guid: f3c79d08b0d526e47a635cf59373440c, type: 3}
+    nameSkin: "Trang ph\u1EE5c \u0111en c\u1EE7a C\xF4 Ti\u1EC1n"
+    coat: {fileID: 21300000, guid: 593e0ec238b8ec0488828a131165b8da, type: 3}
+    pointSkin: 10
+    price: 800
+  - avatar: {fileID: 21300000, guid: cf7ab4329054e4c4f9f42536966f69bd, type: 3}
+    fullSkin: {fileID: 21300000, guid: 351c66a46cd9d254f800e2fc9e7c2799, type: 3}
+    nameSkin: "Trang ph\u1EE5c Neon c\u1EE7a C\xF4 Ti\u1EC1n"
+    coat: {fileID: 21300000, guid: cd20a731b579f444180711791caa0736, type: 3}
+    pointSkin: 25
+    price: -1
+  skill:
+  - levelPointService: 75
+    priceToNextValue: 10
+    levelNormalMove1:
+      conditionID: 5
+      percent: 30
+    levelSpecialMoves:
+      percentAbility: 5
+      conditionID: 5
+      percent: 500
+      timeDuring: 20
+    levelNormalMove2:
+      conditionID: 0
+      percent: 0
+  - levelPointService: 80
+    priceToNextValue: 15
+    levelNormalMove1:
+      conditionID: 5
+      percent: 35
+    levelSpecialMoves:
+      percentAbility: 8
+      conditionID: 5
+      percent: 500
+      timeDuring: 20
+    levelNormalMove2:
+      conditionID: 1
+      percent: 10
+  - levelPointService: 85
+    priceToNextValue: 20
+    levelNormalMove1:
+      conditionID: 5
+      percent: 40
+    levelSpecialMoves:
+      percentAbility: 12
+      conditionID: 5
+      percent: 500
+      timeDuring: 20
+    levelNormalMove2:
+      conditionID: 1
+      percent: 15
+  - levelPointService: 90
+    priceToNextValue: 30
+    levelNormalMove1:
+      conditionID: 5
+      percent: 45
+    levelSpecialMoves:
+      percentAbility: 18
+      conditionID: 5
+      percent: 500
+      timeDuring: 20
+    levelNormalMove2:
+      conditionID: 1
+      percent: 20
+  - levelPointService: 100
+    priceToNextValue: 40
+    levelNormalMove1:
+      conditionID: 5
+      percent: 50
+    levelSpecialMoves:
+      percentAbility: 23
+      conditionID: 5
+      percent: 500
+      timeDuring: 20
+    levelNormalMove2:
+      conditionID: 1
+      percent: 25
+  - levelPointService: 120
+    priceToNextValue: -1
+    levelNormalMove1:
+      conditionID: 5
+      percent: 60
+    levelSpecialMoves:
+      percentAbility: 30
+      conditionID: 5
+      percent: 500
+      timeDuring: 20
+    levelNormalMove2:
+      conditionID: 1
+      percent: 30
+  group: 2

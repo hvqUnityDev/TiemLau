@@ -17,29 +17,108 @@ MonoBehaviour:
   description: "G\u1ECDi m\xF3n, l\xEAn m\xF3n, v\u1EC7 sinh b\xE0n cho kh\xE1ch
     nh\xE0 h\xE0ng"
   story: 
-  pointService: 90
   skins:
-  - avatar: {fileID: 0}
-    fullSkin: {fileID: 0}
+  - avatar: {fileID: 21300000, guid: a6cb6569f9875e44095b8ad2f9e43f4a, type: 3}
+    fullSkin: {fileID: 21300000, guid: fad6be71c07d75042a5923219d15f340, type: 3}
     nameSkin: "Trang ph\u1EE5c ban \u0111\u1EA7u"
-    coat: {fileID: 0}
+    coat: {fileID: 21300000, guid: f58775ad5f44a4943bd670be3003bbd0, type: 3}
     pointSkin: 0
     price: 0
-  - avatar: {fileID: 0}
-    fullSkin: {fileID: 0}
+  - avatar: {fileID: 21300000, guid: f6429c7cbc2c804419db7fcbf483bede, type: 3}
+    fullSkin: {fileID: 21300000, guid: 6712052c7a188ac43b38ce9095e99304, type: 3}
     nameSkin: "Trang ph\u1EE5c l\u1EC5 t\xECnh nh\xE2n"
-    coat: {fileID: 0}
-    pointSkin: 0
-    price: 0
-  - avatar: {fileID: 0}
-    fullSkin: {fileID: 0}
+    coat: {fileID: 21300000, guid: 08e360c4553a4064f82bdf65a8db6272, type: 3}
+    pointSkin: 20
+    price: 2000
+  - avatar: {fileID: 21300000, guid: 850b7bef634d2a6449ad839b5025fd21, type: 3}
+    fullSkin: {fileID: 21300000, guid: 1586f275c463c9c4fa007c53bf3781f2, type: 3}
     nameSkin: "Trang ph\u1EE5c \u0111\u1ECF "
-    coat: {fileID: 0}
-    pointSkin: 0
-    price: 0
-  - avatar: {fileID: 0}
-    fullSkin: {fileID: 0}
+    coat: {fileID: 21300000, guid: 9fa32c34002a6f84180d1ff1b1c77f2c, type: 3}
+    pointSkin: 5
+    price: 500
+  - avatar: {fileID: 21300000, guid: 33acb30d0a7cc3a499970dfabd7e91e1, type: 3}
+    fullSkin: {fileID: 21300000, guid: a9d1aa371bb8ca14b9b23084115984ca, type: 3}
     nameSkin: "Trang ph\u1EE5c \u0111en"
-    coat: {fileID: 0}
-    pointSkin: 0
-    price: 0
+    coat: {fileID: 21300000, guid: cafd746905addca469115e8e58b76cf5, type: 3}
+    pointSkin: 10
+    price: 600
+  skill:
+  - levelPointService: 90
+    priceToNextValue: 10
+    levelNormalMove1:
+      conditionID: 2
+      percent: 25
+    levelSpecialMoves:
+      percentAbility: 5
+      conditionID: 1
+      percent: 100
+      timeDuring: 20
+    levelNormalMove2:
+      conditionID: 0
+      percent: 0
+  - levelPointService: 95
+    priceToNextValue: 15
+    levelNormalMove1:
+      conditionID: 2
+      percent: 30
+    levelSpecialMoves:
+      percentAbility: 8
+      conditionID: 1
+      percent: 100
+      timeDuring: 20
+    levelNormalMove2:
+      conditionID: 1
+      percent: 10
+  - levelPointService: 101
+    priceToNextValue: 20
+    levelNormalMove1:
+      conditionID: 2
+      percent: 40
+    levelSpecialMoves:
+      percentAbility: 12
+      conditionID: 1
+      percent: 100
+      timeDuring: 20
+    levelNormalMove2:
+      conditionID: 1
+      percent: 15
+  - levelPointService: 110
+    priceToNextValue: 30
+    levelNormalMove1:
+      conditionID: 2
+      percent: 45
+    levelSpecialMoves:
+      percentAbility: 20
+      conditionID: 1
+      percent: 100
+      timeDuring: 20
+    levelNormalMove2:
+      conditionID: 1
+      percent: 25
+  - levelPointService: 125
+    priceToNextValue: 50
+    levelNormalMove1:
+      conditionID: 2
+      percent: 55
+    levelSpecialMoves:
+      percentAbility: 20
+      conditionID: 1
+      percent: 100
+      timeDuring: 20
+    levelNormalMove2:
+      conditionID: 1
+      percent: 30
+  - levelPointService: 140
+    priceToNextValue: -1
+    levelNormalMove1:
+      conditionID: 2
+      percent: 65
+    levelSpecialMoves:
+      percentAbility: 30
+      conditionID: 1
+      percent: 100
+      timeDuring: 20
+    levelNormalMove2:
+      conditionID: 1
+      percent: 45
+  group: 1

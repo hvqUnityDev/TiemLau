@@ -1,23 +1,50 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class SlotInCraft : MonoBehaviour
 {
-    public Image slot;
-    public ItemCraftBase ItemCraftBase;
+    private Action<SlotInCraft> WhenClick;
+    
+    [SerializeField] private Image slot;
+    private ItemCraftBase itemCraftBase;
+    [SerializeField] private int indexInBag;
+    private OptionCrafting OC;
 
-    public void Init(ItemCraftBase ItemCraftBase)
+    public void Init(ItemCraftBase itemCraftBase, int index, Action<SlotInCraft> whenClick, OptionCrafting OC)
     {
-        this.ItemCraftBase = ItemCraftBase;
+        gameObject.SetActive(true);
+        AddAction(whenClick);
+        this.OC = OC;
+        this.itemCraftBase = itemCraftBase;
+        indexInBag = index;
         slot.gameObject.SetActive(true);
-        slot.sprite = this.ItemCraftBase.IMG;
+        slot.sprite = this.itemCraftBase.IMG;
+
+        EventTrigger.Entry entry = new EventTrigger.Entry();
+        entry.eventID = EventTriggerType.PointerDown;
+        entry.callback.AddListener((sprite) => WhenClick?.Invoke(this));
+        
+        gameObject.GetComponent<EventTrigger>().triggers.Add(entry); 
     }
 
-    public void Delete()
+    void AddAction(Action<SlotInCraft> whenClick)
     {
-        this.ItemCraftBase = null;
+        WhenClick += whenClick;
+        WhenClick += (SlotInCraft) =>
+        {
+            slot.gameObject.SetActive(false);
+        };
+    }
+
+    public void TurnOff()
+    {
         slot.gameObject.SetActive(false);
     }
+    
+    public ItemCraftBase ItemCraftBase => itemCraftBase;
+    public int IndexInBag => indexInBag;
 }

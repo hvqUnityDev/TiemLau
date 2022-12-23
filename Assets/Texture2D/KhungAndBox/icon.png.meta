@@ -484,7 +484,7 @@ TextureImporter:
         width: 142
         height: 142
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -505,7 +505,7 @@ TextureImporter:
         width: 142
         height: 142
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -513,6 +513,48 @@ TextureImporter:
       bones: []
       spriteID: 75ea620f49b76f147a1fd5e4aa25f8e8
       internalID: -600397074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star1
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 1905
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6a3dc0488348d84c9d741cc677e95fd
+      internalID: 2009996971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Star0
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 1524
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9a307b28592bdb4caaf4f5975b29e0d
+      internalID: -1441475364
       vertices: []
       indices: 
       edges: []
@@ -529,6 +571,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       sactx-0-2048x2048-ETC2-Common1-1328aaf4_1: -1395716450
+      Star1: 2009996971
       icon_3: -273330325
       icon_10: 1584468167
       icon_4: 1505482217
@@ -539,6 +582,7 @@ TextureImporter:
       icon_0: -795705292
       icon_5: 518012386
       icon_13: -600397074
+      Star0: -1441475364
       icon_2: 1081186874
       sactx-0-2048x2048-ETC2-Common1-1328aaf4_2: 1312425788
       icon_7: 2096312806

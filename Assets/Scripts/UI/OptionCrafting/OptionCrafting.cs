@@ -1,24 +1,40 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class OptionCrafting : MonoBehaviour
 {
-    [SerializeField] private Button btnX;
-    [SerializeField] private List<SlotInCraft> slotInBody;
+    private Action<SlotInCraft> ClickSlot;
+    private Action Click_BtnX;
+    
 
+    [Header("Header")] 
+    [SerializeField] private Button btnX;
+    [SerializeField] private TextMeshProUGUI txtTheLuc;
+    [SerializeField] private TextMeshProUGUI txtDiamond;
+    [SerializeField] private TextMeshProUGUI txtMoney;
+    
+    [Header("Plant")]
     [SerializeField] private Button sourPlant;
     [SerializeField] private Button sweetPlant;
     [SerializeField] private Button bitterPlant;
     [SerializeField] private Button spicyPlant;
     [SerializeField] private Button saltyPlant;
-
-    private Action Click_BtnX;
+    
+    [Header("Body")]
+    [SerializeField] private List<SlotInCraft> slotInBody;
+    [SerializeField] private CurrentItem currentItem;
+    [SerializeField] private float min = 2;
+    
+    private Transform currentPos;
 
     private void Start()
     {
+        currentItem.gameObject.SetActive(false);
+        ClickSlot += SetValue_OfCurrentItem;
         sourPlant.onClick.AddListener((() =>
         {
             GameManager.i.Call_AddFromOptionCraft(ItemCraftID.NguViChua, LevelOfItem.One);
@@ -61,18 +77,49 @@ public class OptionCrafting : MonoBehaviour
 
     public void UpdateSlot(List<ItemCraftBase> list)
     {
+        UpdateHeader();
         for (int i = 0; i < list.Count; i++)
         {
+            slotInBody[i].Init(list[i], i, ClickSlot, this);
             if (list[i].ID == ItemCraftID.none)
             {
-                slotInBody[i].Delete();
-            }
-            else
-            {
-                slotInBody[i].Init(list[i]);
+                slotInBody[i].TurnOff();
             }
         }
     }
-    
+
+    public void SetValue_OfCurrentItem(SlotInCraft slotInCraft)
+    {
+        currentItem.gameObject.SetActive(true);
+        currentItem.SetValue(slotInCraft, this);
+    }
+
+    private void UpdateHeader()
+    {
+        txtTheLuc.text = GameManager.i.DTheLuc.ToString();
+        txtDiamond.text = GameManager.i.DDiamond.ToString();
+        txtMoney.text = GameManager.i.DMoney.ToString();
+    }
+
+    public void SetTrans(SlotInCraft slotInCraft)
+    {
+        int pos = -1;
+        float minTemp = min;
+        Debug.Log("TODO: Set trans");
+        for(int i = 0; i < slotInBody.Count ; i++)
+        {
+            Debug.Log("TODO: distance");
+            if (Vector3.Distance(slotInCraft.gameObject.transform.position, slotInBody[i].transform.position) < minTemp)
+            {
+                Debug.Log($"{slotInCraft.IndexInBag} - {slotInBody[i].IndexInBag}");
+                pos = i;
+                minTemp = Vector3.Distance(slotInCraft.gameObject.transform.position, slotInBody[i].transform.position);
+            }
+        }
+
+        GameManager.i.ChangeInBag(slotInCraft.IndexInBag, pos);
+    }
+
     public int CountSlotInBody => slotInBody.Count;
+
 }

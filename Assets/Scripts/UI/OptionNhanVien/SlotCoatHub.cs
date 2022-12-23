@@ -41,4 +41,5 @@ public class SlotCoatHub : MonoBehaviour
     }
 
     public Image SlotCoat => slotCoat;
+    
 }

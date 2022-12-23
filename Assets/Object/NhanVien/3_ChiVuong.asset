@@ -17,5 +17,102 @@ MonoBehaviour:
   description: "G\u1ECDi m\xF3n, l\xEAn m\xF3n, v\u1EC7 sinh m\u1EB7t b\xE0n cho
     kh\xE1ch \u1EDF \u0111\u1EA1i s\u1EA3nh"
   story: 
-  pointService: 36
-  skins: []
+  skins:
+  - avatar: {fileID: 21300000, guid: e01a52fa28041684e906f8cc1a787d14, type: 3}
+    fullSkin: {fileID: 21300000, guid: 2b02b0912a709884191db80b0dd29e20, type: 3}
+    nameSkin: "Trang ph\u1EE5c ban \u0111\u1EA7u"
+    coat: {fileID: 21300000, guid: 0b6720f014dd16b4f993e89a68bd4cb9, type: 3}
+    pointSkin: 0
+    price: 0
+  - avatar: {fileID: 21300000, guid: af2cc57c871a3e7489be951a706b983c, type: 3}
+    fullSkin: {fileID: 21300000, guid: 77598d26b6ca8b14da42fcd3d94f9845, type: 3}
+    nameSkin: "Trang ph\u1EE5c lam c\u1EE7a Ch\u1ECB V\u01B0\u01A1ng"
+    coat: {fileID: 21300000, guid: f58775ad5f44a4943bd670be3003bbd0, type: 3}
+    pointSkin: 10
+    price: 600
+  - avatar: {fileID: 21300000, guid: 9096d50c3d6e3a44192335c138b49924, type: 3}
+    fullSkin: {fileID: 21300000, guid: 5bd5453529f6c1e4cbf70f4f6e37c517, type: 3}
+    nameSkin: "Trang ph\u1EE5c \u0111en c\u1EE7a Ch\u1ECB V\u01B0\u01A1ng"
+    coat: {fileID: 21300000, guid: 6d7ddd27cb51c0b4dad459a7da42497b, type: 3}
+    pointSkin: 10
+    price: 600
+  skill:
+  - levelPointService: 36
+    priceToNextValue: 10
+    levelNormalMove1:
+      conditionID: 2
+      percent: 10
+    levelSpecialMoves:
+      percentAbility: 3
+      conditionID: 2
+      percent: 500
+      timeDuring: 20
+    levelNormalMove2:
+      conditionID: 0
+      percent: 0
+  - levelPointService: 41
+    priceToNextValue: 15
+    levelNormalMove1:
+      conditionID: 2
+      percent: 15
+    levelSpecialMoves:
+      percentAbility: 8
+      conditionID: 2
+      percent: 500
+      timeDuring: 20
+    levelNormalMove2:
+      conditionID: 1
+      percent: 10
+  - levelPointService: 50
+    priceToNextValue: 20
+    levelNormalMove1:
+      conditionID: 2
+      percent: 20
+    levelSpecialMoves:
+      percentAbility: 13
+      conditionID: 2
+      percent: 500
+      timeDuring: 20
+    levelNormalMove2:
+      conditionID: 1
+      percent: 15
+  - levelPointService: 60
+    priceToNextValue: 30
+    levelNormalMove1:
+      conditionID: 2
+      percent: 25
+    levelSpecialMoves:
+      percentAbility: 18
+      conditionID: 2
+      percent: 500
+      timeDuring: 20
+    levelNormalMove2:
+      conditionID: 1
+      percent: 20
+  - levelPointService: 70
+    priceToNextValue: 40
+    levelNormalMove1:
+      conditionID: 2
+      percent: 30
+    levelSpecialMoves:
+      percentAbility: 23
+      conditionID: 2
+      percent: 500
+      timeDuring: 20
+    levelNormalMove2:
+      conditionID: 1
+      percent: 25
+  - levelPointService: 80
+    priceToNextValue: -1
+    levelNormalMove1:
+      conditionID: 2
+      percent: 35
+    levelSpecialMoves:
+      percentAbility: 28
+      conditionID: 2
+      percent: 500
+      timeDuring: 20
+    levelNormalMove2:
+      conditionID: 1
+      percent: 30
+  group: 1

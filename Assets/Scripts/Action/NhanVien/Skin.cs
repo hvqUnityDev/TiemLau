@@ -12,7 +12,8 @@ public class Skin
     [SerializeField] private Sprite coat;
     [SerializeField] private int pointSkin;
     [SerializeField] private int price;
-    
+    [SerializeField] private CondtionSkin condtionSkin;
+
     
     public Sprite Avatar => avatar; 
     public Sprite FullSkin => fullSkin; 
@@ -20,4 +21,12 @@ public class Skin
     public Sprite Coat => coat;
     public int PointSkin => pointSkin;
     public int Price => price;
+    private CondtionSkin CondtionSkin => condtionSkin;
+}
+
+public enum CondtionSkin
+{
+    Buy,
+    Bought,
+    Special
 }

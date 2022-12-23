@@ -99,7 +99,7 @@ MonoBehaviour:
       conditionID: 1
       percent: 15
   - levelPointService: 43
-    priceToNextValue: -1
+    priceToNextValue: 40
     levelNormalMove1:
       conditionID: 2
       percent: 35
@@ -111,4 +111,43 @@ MonoBehaviour:
     levelNormalMove2:
       conditionID: 1
       percent: 20
+  - levelPointService: 53
+    priceToNextValue: 60
+    levelNormalMove1:
+      conditionID: 2
+      percent: 60
+    levelSpecialMoves:
+      percentAbility: 15
+      conditionID: 2
+      percent: 500
+      timeDuring: 20
+    levelNormalMove2:
+      conditionID: 1
+      percent: 25
+  - levelPointService: 70
+    priceToNextValue: 70
+    levelNormalMove1:
+      conditionID: 2
+      percent: 75
+    levelSpecialMoves:
+      percentAbility: 20
+      conditionID: 2
+      percent: 500
+      timeDuring: 20
+    levelNormalMove2:
+      conditionID: 1
+      percent: 35
+  - levelPointService: 80
+    priceToNextValue: -1
+    levelNormalMove1:
+      conditionID: 2
+      percent: 85
+    levelSpecialMoves:
+      percentAbility: 25
+      conditionID: 2
+      percent: 500
+      timeDuring: 20
+    levelNormalMove2:
+      conditionID: 1
+      percent: 40
   group: 1

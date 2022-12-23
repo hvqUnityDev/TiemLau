@@ -10,13 +10,15 @@ public class GameManager : MonoBehaviour
     
     [SerializeField] UIManager uiManager;
     
+    
     [SerializeField] private int dDiamond = 9999;
     [SerializeField] private int dMoney = 9999;
     [SerializeField] private int dCoSo = 9999;
     [SerializeField] private int dPhucVu = 9999;
     [SerializeField] private int dThucAn = 9999;
     [SerializeField] private int dSachDaoTao = 9999;
-
+    [SerializeField, Range(0, 30)] private int dTheLuc = 30; 
+    
     [SerializeField] private ObjectNhanVienBase _objectNhanVienBases;
     [SerializeField] private List<ItemCraftBase> listItemCraftBases;
 
@@ -61,7 +63,7 @@ public class GameManager : MonoBehaviour
         
         for (int i = 0; i < uiManager.OptionCrafting.CountSlotInBody; i++)
         {
-            ItemCraftBase item = new ItemCraftBase(ItemCraftID.none, LevelOfItem.One);
+            ItemCraftBase item = SearchInDictionary(ItemCraftID.none);
             Bag.Add(item);
         }
     }
@@ -93,18 +95,76 @@ public class GameManager : MonoBehaviour
         {
             if (bag[i].ID == ItemCraftID.none)
             {
-                bag[i] = SearchInBag(id, lvl);
-                Debug.Log("TODO: Dec dTheLuc");
-                return;
-            }
-            else
-            {
-                Debug.Log("full in bag");
+                if (Dec_DTheLuc())
+                {
+                    bag[i] = SearchInDictionary(id, lvl);
+                    return;
+                }
+                else
+                {
+                    Debug.Log("TODO: not enough dTheLuc");
+                    return;
+                }
+                
             }
         }
+        
+        Debug.Log("full in bag");
+    }
+
+    public void ChangeInBag(int indexDrag, int index)
+    {
+        if (indexDrag == index)
+        {
+            Debug.Log("bang nhau");
+            return;
+        }
+        if (bag[indexDrag] == bag[index])
+        {
+            Debug.Log("change");
+            bag[index] = SearchInDictionary(bag[index].ID, bag[index].NextLevel);
+        }
+    }
+    
+    
+
+    bool Dec_DTheLuc()
+    {
+        if (dTheLuc >= 1)
+        {
+            dTheLuc--;
+            return true;
+        }
+
+        return false;
+    }
+
+    bool Inc_DTheLuc()
+    {
+        if (dTheLuc < 30)
+        {
+            dTheLuc++;
+            return true;
+        }
+
+        return false;
     }
 
     ItemCraftBase SearchInBag(ItemCraftID id, LevelOfItem lvl)
+    {
+        foreach (var i in bag)
+        {
+            if (i.ID == id && i.Level == lvl)
+            {
+                return i;
+            }
+        }
+
+        Debug.Log("Not in bag!");
+        return null;
+    }
+
+    public ItemCraftBase SearchInDictionary(ItemCraftID id, LevelOfItem lvl = LevelOfItem.none)
     {
         foreach (var i in listItemCraftBases)
         {
@@ -119,19 +179,22 @@ public class GameManager : MonoBehaviour
     }
 
      
-    public int d_Diamond => dDiamond;
-    public int d_Money => dMoney;
-    public int d_CoSo => dCoSo;
-    public int d_PhucVu => dPhucVu;
-    public int d_ThucAn => dThucAn;
+    public int DDiamond => dDiamond;
+    public int DMoney => dMoney;
+    public int DCoSo => dCoSo;
+    public int DPhucVu => dPhucVu;
+    public int DThucAn => dThucAn;
     public int DSachDaoTao => dSachDaoTao;
-    
+
+    public int DTheLuc => dTheLuc;
+
     public List<NhanVien> NV_PhucVu => nhanViens_PhucVu;
     public List<NhanVien> NV_ThuNgan => nhanViens_ThuNgan;
     public List<NhanVien> NV_PhuBep => nhanViens_PhuBep;
     public List<NhanVien> NV_DauBep => nhanViens_DauBep;
     public List<NhanVien> NV_PG => nhanViens_PG;
     public List<ItemCraftBase> Bag => bag;
+    public List<ItemCraftBase> ListItemCraftBases => ListItemCraftBases;
 }
 
 [Serializable]
@@ -148,4 +211,5 @@ struct ObjectNhanVienBase
     public List<NhanVienBase> PhuBepBases => nhanViensBase_PhuBep;
     public List<NhanVienBase> DauBepBases => nhanViensBase_DauBep;
     public List<NhanVienBase> PGBases => nhanViensBase_PG;
+    
 }

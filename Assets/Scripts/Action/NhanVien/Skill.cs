@@ -56,6 +56,8 @@ public enum ConditionID
 {
     none,
     speed,
-    speedClear
-
+    speedClear,
+    washDishes,
+    attractCustomers,
+    billCalculation
 }

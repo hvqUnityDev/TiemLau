@@ -32,8 +32,31 @@ public class ConditionBD
                 Name = "speedClear",
                 Description = "Đẩy mạnh tốc độ vệ sinh "
             }
+        },
+        {
+            ConditionID.washDishes,
+            new Condition()
+            {
+                Name = "washDishes",
+                Description = "Đẩy mạnh tốc độ rửa bát "
+            }
+        },
+        {
+            ConditionID.billCalculation,
+            new Condition()
+            {
+                Name = "billCalculation",
+                Description = "Đẩy mạnh tốc độ thu ngân "
+            }
+        },
+        {
+            ConditionID.attractCustomers,
+            new Condition()
+            {
+                Name = "washDishes",
+                Description = "Đẩy mạnh tốc độ thu hút khách hàng "
+            }
         }
-        
         
     };
 }

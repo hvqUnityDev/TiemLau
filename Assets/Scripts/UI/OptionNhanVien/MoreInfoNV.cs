@@ -13,9 +13,12 @@ public class MoreInfoNV : MonoBehaviour
     [SerializeField] private TextMeshProUGUI PointServicePlus;
     [SerializeField] private TextMeshProUGUI Story;
     [SerializeField] private TextMeshProUGUI NameSkin;
-    [SerializeField] private Image FullSkin;
-    [SerializeField] private TextMeshProUGUI TxtPrice;
-    
+    [SerializeField] private Image imgFullSkin;
+    [SerializeField] private Button btnChange;
+    [SerializeField] private Button btnBuy;
+    [SerializeField] private TextMeshProUGUI txtPrice;
+    [SerializeField] private TextMeshProUGUI txtConditionSkin;
+
     [Header("Part02")]
     [SerializeField] private List<SlotCoatHub> Coats = new List<SlotCoatHub>();
     [SerializeField] private Transform contentCoat;
@@ -28,7 +31,10 @@ public class MoreInfoNV : MonoBehaviour
     [SerializeField] private TextMeshProUGUI txtCurrentPointService;
     [SerializeField] private GameObject imgND_txtNextPointService;
     [SerializeField] private TextMeshProUGUI txtNextPointService;
-    
+    [SerializeField] private Sprite imgStarOff;
+    [SerializeField] private Sprite imgStarOn;
+    [SerializeField] private List<Image> stars;
+
     [Header("Part05")]
     [SerializeField] private TextMeshProUGUI txtDesMove1;
     [SerializeField] private GameObject objDesSpecialMove;
@@ -94,16 +100,35 @@ public class MoreInfoNV : MonoBehaviour
         
         UpdateInfoSkin(nhanVien.NVBase.Skins[nhanVien.CurrentSkin]);
         UpdateContentCoat(contentCoat, nhanVien.NVBase.Skins);
+        UpdateStars(nhanVien.Level);
         UpdateInfoCondition(nhanVien);
+    }
+
+    void UpdateStars(int n)
+    {
+        DeleteColorStar();
+        
+        for (int i = 0; i < n; i++)
+        {
+            stars[i].sprite = imgStarOn;
+        }
+    }
+
+    void DeleteColorStar()
+    {
+        foreach (var star in stars)
+        {
+            star.sprite = imgStarOff;
+        }
     }
 
     public void UpdateInfoSkin(Skin skin)
     {
         ResetColorCoats();
-        FullSkin.sprite = skin.FullSkin;
+        imgFullSkin.sprite = skin.FullSkin;
         PointServicePlus.text = skin.PointSkin.ToString();
         NameSkin.text = skin.NameSkin;
-        TxtPrice.text = skin.Price.ToString();
+        txtPrice.text = skin.Price.ToString();
     }
 
     void UpdateContentCoat(Transform content, List<Skin> skins)
@@ -221,12 +246,11 @@ public class MoreInfoNV : MonoBehaviour
             Debug.Log($"Not enough pSachDaoTao - { GameManager.i.DSachDaoTao}");
             return;
         }
-
-        if(GameManager.i.Call_UpLevelNV(_nhanVien))
+        else if(GameManager.i.Call_UpLevelNV(_nhanVien))
         {
             UpdateInfoCondition(_nhanVien);
+            UpdateStars(_nhanVien.Level);
         }
-
     }
 
 }
