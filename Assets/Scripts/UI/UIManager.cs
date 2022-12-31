@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI txt_dCoSo;
     [SerializeField] private TextMeshProUGUI txt_dPhucVu;
     [SerializeField] private TextMeshProUGUI txt_dThucAn;
+    [SerializeField] private TMP_Text txtName;
 
     [Header("btn Option")]
     [SerializeField] private Button btnCuaTiem;
@@ -108,6 +109,12 @@ public class UIManager : MonoBehaviour
     {
         txt_dThucAn.text = value.ToString();
     }
+
+    public void UpdateValueName(string name)
+    {
+        txtName.text = name;
+        Debug.Log("name : " + name);
+    }
     
     #endregion
     
@@ -121,7 +128,7 @@ public class UIManager : MonoBehaviour
     {
         option.gameObject.SetActive(true);
         _optionCrafting.gameObject.SetActive(true);
-        _optionCrafting.UpdateSlot(GameManager.i.Bag);
+        //_optionCrafting.UpdateSlot(GameManager.i.Bag);
     }
     void Click_ThucDon()
     {
@@ -184,35 +191,35 @@ public class UIManager : MonoBehaviour
 
     void OnClick_btn_NVPV()
     {
-        UpdateContentNhanVien(contentNhanVien, GameManager.i.NV_PhucVu);
+        UpdateContentNhanVien(contentNhanVien, GameManager.i.Player.NV_PhucVu);
         DeleteColorButton();
         btn_NVPV.GetComponent<Image>().color = colorOnClick;
     }
     
     void OnClick_btn_NVTN()
     {
-        UpdateContentNhanVien(contentNhanVien, GameManager.i.NV_ThuNgan);
+        UpdateContentNhanVien(contentNhanVien, GameManager.i.Player.NV_ThuNgan);
         DeleteColorButton();
         btn_NVTN.GetComponent<Image>().color = colorOnClick;
     }
     
     void OnClick_btn_NVPB()
     {
-        UpdateContentNhanVien(contentNhanVien, GameManager.i.NV_PhuBep);
+        UpdateContentNhanVien(contentNhanVien, GameManager.i.Player.NV_PhuBep);
         DeleteColorButton();
         btn_NVPB.GetComponent<Image>().color = colorOnClick;
     }
     
     void OnClick_btn_NVDB()
     {
-        UpdateContentNhanVien(contentNhanVien, GameManager.i.NV_DauBep);
+        UpdateContentNhanVien(contentNhanVien, GameManager.i.Player.NV_DauBep);
         DeleteColorButton();
         btn_NVDB.GetComponent<Image>().color = colorOnClick;
     }
     
     void OnClick_btn_NVPG()
     {
-        UpdateContentNhanVien(contentNhanVien, GameManager.i.NV_PG);
+        UpdateContentNhanVien(contentNhanVien, GameManager.i.Player.NV_PG);
         DeleteColorButton();
         btn_NVPG.GetComponent<Image>().color = colorOnClick;
     }

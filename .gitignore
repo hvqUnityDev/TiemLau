@@ -5,6 +5,10 @@
 /[Bb]uild/
 /[Bb]uilds/
 /Assets/AssetStoreTools*
+/Assets/Firebase
+/Assets/plugins
+/Assets/Editor Default Resources
+/Assets/ExternalDependencyManager
 
 # Visual Studio 2015 cache directory
 /.vs/
@@ -39,3 +43,7 @@ sysinfo.txt
 *.unitypackage
 *.DS_Store
 *.vscode
+Assets/Firebase.meta
+Assets/Plugins.meta
+Assets/ExternalDependencyManager.meta
+Assets/Editor Default Resources.meta

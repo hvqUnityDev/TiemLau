@@ -22,7 +22,7 @@ public class SlotOptionNhanVienHub : MonoBehaviour
 
         Debug.Log("TODO: add current Skin");
         imgAvatar.sprite = nhanVien.ObjCurrentSkin.Avatar;
-        txtName.text = nhanVien.NVBase.Name;
+        txtName.text = nhanVien.NVBase.NameNv;
         txtDescription.text = nhanVien.NVBase.Description;
         txtPointService.text = nhanVien.GetPointService().ToString();
         

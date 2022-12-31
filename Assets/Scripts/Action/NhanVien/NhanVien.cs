@@ -9,15 +9,16 @@ public class NhanVien : MonoBehaviour
     
     [SerializeField] private int level;
     [SerializeField] private Skin objCurrentSkin;
-
+    [SerializeField] private bool isUnLock;
     [SerializeField] private Dictionary<Skin, bool> _conditionSkins;
     private NhanVienBase _nvBase;
     
     public NhanVien(NhanVienBase _nvBase)
     {
         this._nvBase = _nvBase;
-        
+        this.isUnLock = false;
         _conditionSkins = new Dictionary<Skin, bool>();
+        
         foreach (var skin in _nvBase.Skins)
         {
             if (skin.CondtionSkin == CondtionSkin.Default)
@@ -68,12 +69,19 @@ public class NhanVien : MonoBehaviour
         }
 
         return false;
+    } 
+
+    public void UnLock()
+    {
+        isUnLock = true;
     }
 
     public int Level => level;
     public Skin ObjCurrentSkin => objCurrentSkin;
     public NhanVienBase NVBase => _nvBase;
     public Dictionary<Skin, bool> ConditionSkins => _conditionSkins;
-    
+
+    public bool IsUnLock => isUnLock;
+
 }
 

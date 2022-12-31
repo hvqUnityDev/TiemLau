@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a31615acf014a54f91fb756188f4e83, type: 3}
   m_Name: 8_CoTo
   m_EditorClassIdentifier: 
-  name: "C\xF4 T\xF4"
+  nameNV: "C\xF4 T\xF4"
   description: "Th\xE1nh to\xE1n cho kh\xE1ch \u1EDF kh\xE1n ph\xF2ng"
   story: 
   skins:

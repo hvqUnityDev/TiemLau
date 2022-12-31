@@ -241,7 +241,7 @@ public class MoreInfoNV : MonoBehaviour
             Debug.Log($"Not enough pSachDaoTao - { GameManager.i.DSachDaoTao}");
             return;
         }
-        else if(GameManager.i.Call_UpLevelNV(_nhanVien))
+        else if(GameManager.i.Player.Call_UpLevelNV(_nhanVien))
         {
             UpdateInfoCondition(_nhanVien);
             UpdateStars(_nhanVien.Level);
@@ -264,7 +264,7 @@ public class MoreInfoNV : MonoBehaviour
             btnBuy.onClick.RemoveAllListeners();
             btnBuy.onClick.AddListener(() =>
             {
-                GameManager.i.Call_TryBuyTheSkin(nhanVien, skin);
+                GameManager.i.Player.Call_TryBuyTheSkin(nhanVien, skin);
                 UpdateConditionSkin(nhanVien, skin);
             });
         }

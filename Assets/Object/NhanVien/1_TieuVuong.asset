@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a31615acf014a54f91fb756188f4e83, type: 3}
   m_Name: 1_TieuVuong
   m_EditorClassIdentifier: 
-  name: "Ti\u1EC3u V\u01B0\u01A1ng"
+  nameNV: "Ti\u1EC3u V\u0169"
   description: "G\u1ECDi m\xF3n, l\xEAn m\xF3n, v\u1EC7 sinh b\xE0n cho kh\xE1ch
     nh\xE0 h\xE0ng"
   story: "Ti\u1EC3u V\u01B0\u01A1ng ch\u1EC9 mu\u1ED1n l\xE0m m\u1ED9t c\xF4ng vi\u1EC7c

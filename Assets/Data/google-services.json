@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1016082683777",
+    "firebase_url": "https://tiemlau-cntt9-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "tiemlau-cntt9",
+    "storage_bucket": "tiemlau-cntt9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1016082683777:android:263d9a5f9c80ba5dc2ba80",
+        "android_client_info": {
+          "package_name": "com.cnnt9k12.tiemlau"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1016082683777-r7ujhp9cm5r0oqiokg0gpk0bl1ppbdvp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cnnt9k12.tiemlau",
+            "certificate_hash": "979d8a17a9fa616e488ba8ab4d17d8d8fbee5513"
+          }
+        },
+        {
+          "client_id": "1016082683777-onkjuroebj1nkl2lei9nkhcpfvo0ddv9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAefYIP32m2SC9qyMdIqHGeTRxUBFppI2w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1016082683777-onkjuroebj1nkl2lei9nkhcpfvo0ddv9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1016082683777-7shitvipg5movh75i76j2kf4e4i3s4q5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.cnnt9k12.tiemlau.patrick"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

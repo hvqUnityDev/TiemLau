@@ -33,37 +33,37 @@ public class OptionCrafting : MonoBehaviour
 
     private void Start()
     {
-        currentItem.gameObject.SetActive(false);
-        ClickSlot += SetValue_OfCurrentItem;
-        sourPlant.onClick.AddListener((() =>
-        {
-            GameManager.i.Call_AddFromOptionCraft(ItemCraftID.NguViChua, LevelOfItem.One);
-            UpdateSlot(GameManager.i.Bag);
-        }));
-        
-        sweetPlant.onClick.AddListener((() =>
-        {
-            GameManager.i.Call_AddFromOptionCraft(ItemCraftID.NguViNgot, LevelOfItem.One);
-            UpdateSlot(GameManager.i.Bag);
-        }));
-        
-        bitterPlant.onClick.AddListener((() =>
-        {
-            GameManager.i.Call_AddFromOptionCraft(ItemCraftID.NguViDang, LevelOfItem.One);
-            UpdateSlot(GameManager.i.Bag);
-        }));
-        
-        spicyPlant.onClick.AddListener((() =>
-        {
-            GameManager.i.Call_AddFromOptionCraft(ItemCraftID.NguViCay, LevelOfItem.One);
-            UpdateSlot(GameManager.i.Bag);
-        }));
-        
-        saltyPlant.onClick.AddListener((() =>
-        {
-            GameManager.i.Call_AddFromOptionCraft(ItemCraftID.NguVuMan, LevelOfItem.One);
-            UpdateSlot(GameManager.i.Bag);
-        }));
+        // currentItem.gameObject.SetActive(false);
+        // ClickSlot += SetValue_OfCurrentItem;
+        // sourPlant.onClick.AddListener((() =>
+        // {
+        //     GameManager.i.Call_AddFromOptionCraft(ItemCraftID.NguViChua, LevelOfItem.One);
+        //     UpdateSlot(GameManager.i.Bag);
+        // }));
+        //
+        // sweetPlant.onClick.AddListener((() =>
+        // {
+        //     GameManager.i.Call_AddFromOptionCraft(ItemCraftID.NguViNgot, LevelOfItem.One);
+        //     UpdateSlot(GameManager.i.Bag);
+        // }));
+        //
+        // bitterPlant.onClick.AddListener((() =>
+        // {
+        //     GameManager.i.Call_AddFromOptionCraft(ItemCraftID.NguViDang, LevelOfItem.One);
+        //     UpdateSlot(GameManager.i.Bag);
+        // }));
+        //
+        // spicyPlant.onClick.AddListener((() =>
+        // {
+        //     GameManager.i.Call_AddFromOptionCraft(ItemCraftID.NguViCay, LevelOfItem.One);
+        //     UpdateSlot(GameManager.i.Bag);
+        // }));
+        //
+        // saltyPlant.onClick.AddListener((() =>
+        // {
+        //     GameManager.i.Call_AddFromOptionCraft(ItemCraftID.NguVuMan, LevelOfItem.One);
+        //     UpdateSlot(GameManager.i.Bag);
+        // }));
         
     }
 
@@ -117,7 +117,7 @@ public class OptionCrafting : MonoBehaviour
             }
         }
 
-        GameManager.i.ChangeInBag(slotInCraft.IndexInBag, pos);
+        //GameManager.i.ChangeInBag(slotInCraft.IndexInBag, pos);
     }
 
     public int CountSlotInBody => slotInBody.Count;

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a31615acf014a54f91fb756188f4e83, type: 3}
   m_Name: 4_DiLa
   m_EditorClassIdentifier: 
-  name: "D\xEC La"
+  nameNV: "D\xEC La"
   description: "R\u1EEDa b\xE1t \u0111\u0169a cho nh\xE0 h\xE0nh"
   story: "M\u1ED9t d\xEC mi\u1EC7ng nhanh h\u01A1n n\xE3o. M\xE1y t\xE1m chuy\u1EC7n
     di \u0111\u1ED9ng c\u1EE7a h\xE0ng \u0103n, r\u1EA5t th\xEDch gi\u1EDBi thi\u1EC7u
