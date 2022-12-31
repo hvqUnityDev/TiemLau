@@ -3676,8 +3676,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 5e3371c9600be13498d94b8b7666750e, type: 2}
     nhanViensBase_PhuBep: []
     nhanViensBase_DauBep: []
-    nhanViensBase_PG:
-    - {fileID: 11400000, guid: e7e8e2e7f2e84c24ea312ffca853e9fa, type: 2}
+    nhanViensBase_PG: []
   listItemCraftBases:
   - {fileID: 11400000, guid: d72fcb1c93a99344d928b0e860be0aae, type: 2}
   - {fileID: 11400000, guid: f41c827c301e7794bad9b6f34f81a064, type: 2}

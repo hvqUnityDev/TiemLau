@@ -20,3 +20,13 @@ public class NhanVienBase : ScriptableObject
     public ValueNhanVien Group => group;
     
 }
+
+public enum ValueNhanVien
+{
+    none,
+    NVPV,
+    NVTN,
+    NVPB,
+    NVDB,
+    NVPG
+}

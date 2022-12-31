@@ -6,15 +6,24 @@ using UnityEngine;
 
 public class NhanVien : MonoBehaviour
 {
+    public Action<int> ConvertActionWithData;
     
     [SerializeField] private int level;
     [SerializeField] private Skin objCurrentSkin;
     [SerializeField] private bool isUnLock;
     [SerializeField] private Dictionary<Skin, bool> _conditionSkins;
     private NhanVienBase _nvBase;
-    
+
+
+    private void FixDataWithDatabase(int level)
+    {
+        this.level = level;
+    }
+
     public NhanVien(NhanVienBase _nvBase)
     {
+        ConvertActionWithData += FixDataWithDatabase;
+        
         this._nvBase = _nvBase;
         this.isUnLock = false;
         _conditionSkins = new Dictionary<Skin, bool>();

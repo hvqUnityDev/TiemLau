@@ -20,11 +20,11 @@ public class PlayerToPost : MonoBehaviour
     {
         groupsNhanVien = new Dictionary<string, ListNVToPost>();
         
-        GroupsNhanVienInit("NV_PhucVu", GameManager.i.Player.NV_PhucVu);
-        GroupsNhanVienInit("NV_DauBep", GameManager.i.Player.NV_DauBep);
-        GroupsNhanVienInit("NV_PhuBep", GameManager.i.Player.NV_PhuBep);
-        GroupsNhanVienInit("NV_PG", GameManager.i.Player.NV_PG);
-        GroupsNhanVienInit("NV_ThuNgan", GameManager.i.Player.NV_ThuNgan);
+        GroupsNhanVienInit(ValueNhanVien.NVPV.ToString(), GameManager.i.Player.NV_PhucVu);
+        GroupsNhanVienInit(ValueNhanVien.NVDB.ToString(), GameManager.i.Player.NV_DauBep);
+        GroupsNhanVienInit(ValueNhanVien.NVPB.ToString(), GameManager.i.Player.NV_PhuBep);
+        GroupsNhanVienInit(ValueNhanVien.NVPG.ToString(), GameManager.i.Player.NV_PG);
+        GroupsNhanVienInit(ValueNhanVien.NVTN.ToString(), GameManager.i.Player.NV_ThuNgan);
         
         dDiamond = GameManager.i.Player.DDiamond;
         dMoney = GameManager.i.Player.DMoney;

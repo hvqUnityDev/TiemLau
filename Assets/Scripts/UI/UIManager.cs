@@ -277,12 +277,4 @@ public class UIManager : MonoBehaviour
     
 }
 
-public enum ValueNhanVien
-{
-    none,
-    NVPV,
-    NVTN,
-    NVPB,
-    NVDB,
-    NVPG
-}
+

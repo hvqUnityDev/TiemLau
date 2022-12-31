@@ -55,9 +55,7 @@ public class Player : MonoBehaviour
     
     private IEnumerator Start()
     {
-
         bag = new List<ItemCraftBase>();
-
         yield return new WaitWhile(() => GameManager.i == null);
         
         InitNhanVien(GameManager.i.ObjectNhanVienBases.PhucVuBases, nhanViens_PhucVu);
@@ -66,6 +64,7 @@ public class Player : MonoBehaviour
         InitNhanVien(GameManager.i.ObjectNhanVienBases.DauBepBases, nhanViens_DauBep);
         InitNhanVien(GameManager.i.ObjectNhanVienBases.PGBases, nhanViens_PG);
         
+        //yield return new WaitWhile(() => ScriptForFirebase.GroupsNhanVien == null);
         OnSetDataFromDB.AddListener(SetDataFromDB);
         //OnSetDataFromDB.Invoke();
     }
@@ -85,13 +84,69 @@ public class Player : MonoBehaviour
         dThucAn = ScriptForFirebase.dThucAn;
         dSachDaoTao = ScriptForFirebase.dSachDaoTao;
         dTheLuc = ScriptForFirebase.dTheLuc;
-        
-        
+
+        ExtractGroupNhanVien(ScriptForFirebase.GroupsNhanVien);
         
         GameManager.i.UpdateD?.Invoke();
     }
-    
-    
+
+    private void ExtractGroupNhanVien(Dictionary<string, ListNVToPost> GroupsNhanVien)
+    {
+        foreach (var kvp in GroupsNhanVien)
+        {
+            if (kvp.Key == ValueNhanVien.NVDB.ToString())
+            {
+                List<NhanVien> list = nhanViens_DauBep;
+                foreach (var item in kvp.Value.NhanVien)
+                {
+                    ChangeData(list, item.Key, item.Value);
+                }
+            }else if (kvp.Key == ValueNhanVien.NVPB.ToString())
+            {
+                List<NhanVien> list = nhanViens_PhuBep;
+                foreach (var item in kvp.Value.NhanVien)
+                {
+                    ChangeData(list, item.Key, item.Value);
+                }
+            }else if (kvp.Key == ValueNhanVien.NVPV.ToString())
+            {
+                List<NhanVien> list = nhanViens_PhucVu;
+                foreach (var item in kvp.Value.NhanVien)
+                {
+                    Debug.Log($"{list} {item.Key} { item.Value}");
+                    ChangeData(list, item.Key, item.Value);
+                }
+            }
+            else if (kvp.Key == ValueNhanVien.NVTN.ToString())
+            {
+                List<NhanVien> list = nhanViens_ThuNgan;
+                foreach (var item in kvp.Value.NhanVien)
+                {
+                    ChangeData(list, item.Key, item.Value);
+                }
+            }else if (kvp.Key == ValueNhanVien.NVPG.ToString())
+            {
+                List<NhanVien> list = nhanViens_PG;
+                foreach (var item in kvp.Value.NhanVien)
+                {
+                    ChangeData(list, item.Key, item.Value);
+                }
+            }
+        }
+    }
+
+    private void ChangeData(List<NhanVien> list, string key, InfNVToPost value)
+    {
+        foreach (var item in list)
+        {
+            if (item.NVBase.NameNv == key)
+            {
+                item.ConvertActionWithData?.Invoke(value.Level);
+            }
+        }
+    }
+
+
     void InitNhanVien(List<NhanVienBase> list, List<NhanVien> nvs)
     {
         foreach (var item in list)
@@ -100,7 +155,6 @@ public class Player : MonoBehaviour
             nvs.Add(i);
         }
     }
-
 
 
     ItemCraftBase SearchInBag(ItemCraftID id, LevelOfItem lvl)

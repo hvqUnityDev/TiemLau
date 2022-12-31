@@ -79,7 +79,7 @@ public class ScriptForFirebase : MonoBehaviour
     public void OnGetData()
     {
         StartCoroutine(RetrieveFromDatabase());
-        Player.OnSetDataFromDB?.Invoke();
+        //Player.OnSetDataFromDB?.Invoke();
     }
     
     private void PostToDatabase(bool full = false)
@@ -191,7 +191,7 @@ public class ScriptForFirebase : MonoBehaviour
             bool isTry5 = int.TryParse(snapshot.Child("dSachDaoTao").Value.ToString(), out dSachDaoTao);
             bool isTry6 = int.TryParse(snapshot.Child("dTheLuc").Value.ToString(), out dTheLuc);
 
-            GetData_GROUP_NHAN_VIEN(snapshot);
+            StartCoroutine(GetData_GROUP_NHAN_VIEN(snapshot));
             
             
             //TODO: GetMoreData
@@ -210,34 +210,34 @@ public class ScriptForFirebase : MonoBehaviour
         }
         
     }
+    public static Dictionary<string, ListNVToPost>  GroupsNhanVien { get; private set; }
 
-    private Dictionary<string, ListNVToPost> groupsNhanVien;
-    public Dictionary<string, ListNVToPost> GroupsNhanVien => groupsNhanVien;
-
-    private void GetData_GROUP_NHAN_VIEN(DataSnapshot snapshot)
+    private IEnumerator GetData_GROUP_NHAN_VIEN(DataSnapshot snapshot)
     {
+        GroupsNhanVien = new Dictionary<string, ListNVToPost>();
         string n = snapshot.Child(ConstValue.GROUP_NHAN_VIEN.ToString()).GetRawJsonValue();
         var dictionary = JsonConvert.DeserializeObject<Dictionary<string, ListNVToPost>>(n);
 
         foreach (var kvp in dictionary)
         {
             ListNVToPost list = new ListNVToPost();
+            list.NhanVien = new Dictionary<string, InfNVToPost>();
             string n1 = snapshot.Child(ConstValue.GROUP_NHAN_VIEN.ToString()).Child(kvp.Key).GetRawJsonValue();
             var dictionary1 = JsonConvert.DeserializeObject<Dictionary<string, InfNVToPost>>(n1);
             
             foreach (var v in dictionary1)
             {
-                Debug.Log($"v:{v.Key} : {v.Value.IsUnLock} - {v.Value.Level}");
+                //Debug.Log($"v:{v.Key} : {v.Value.IsUnLock} - {v.Value.Level}");
                 InfNVToPost inf = new InfNVToPost();
                 inf.Level = v.Value.Level;
                 inf.IsUnLock = v.Value.IsUnLock;
                 list.NhanVien.Add(v.Key, inf);
             }
             
-            groupsNhanVien.Add(kvp.Key, list);
+            GroupsNhanVien.Add(kvp.Key, list);
         }
 
-        Debug.Log(groupsNhanVien);
+        yield return null;
     }
 
     /*
